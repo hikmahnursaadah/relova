@@ -37,7 +37,7 @@ $cardClass = trim('product-card ' . ($class ?? '') . ($isSold ? ' is-sold' : '')
         <h3 class="product-card__title"><a href="<?= url('/produk/' . $product['id']) ?>"><?= e($product['title']) ?></a></h3>
         <div class="product-card__meta">
             <span>Ukuran <?= e($product['size']) ?></span>
-            <span><?= e($product['brand'] ?: 'Preloved') ?></span>
+            <span><?= e($product['brand'] ?: 'Tanpa merek') ?></span>
         </div>
         <div class="product-card__foot">
             <strong class="product-card__price"><?= rupiah($product['price']) ?></strong>

@@ -133,6 +133,29 @@ class UserModel extends Model
         return (int) $this->db->query('SELECT COUNT(*) FROM users')->fetchColumn();
     }
 
+    public function activeSellers(): int
+    {
+        $stmt = $this->db->prepare(
+            "SELECT COUNT(DISTINCT u.id) FROM users u
+             JOIN products p ON p.seller_id = u.id
+             WHERE u.status = 'aktif' AND u.role IN ('penjual', 'pembeli') AND p.status = 'aktif'"
+        );
+        $stmt->execute();
+        return (int) $stmt->fetchColumn();
+    }
+
+    public function sellerCities(): int
+    {
+        $stmt = $this->db->prepare(
+            "SELECT COUNT(DISTINCT lower(trim(u.city))) FROM users u
+             JOIN products p ON p.seller_id = u.id
+             WHERE u.status = 'aktif' AND u.role IN ('penjual', 'pembeli')
+               AND p.status = 'aktif' AND u.city IS NOT NULL AND trim(u.city) != ''"
+        );
+        $stmt->execute();
+        return (int) $stmt->fetchColumn();
+    }
+
     public function newThisMonth(): int
     {
         $stmt = $this->db->prepare('SELECT COUNT(*) FROM users WHERE created_at >= ?');

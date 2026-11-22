@@ -1,6 +1,6 @@
 <section class="auth-section">
     <div class="auth-visual">
-        <img src="<?= asset('images/products/rak-netral.jpg') ?>" alt="Rak pakaian preloved dengan warna netral" loading="eager">
+        <img src="<?= asset('images/products/rak-netral.jpg') ?>" alt="Rak pakaian bekas terawat dengan warna netral" loading="eager">
         <div class="auth-visual__overlay">
             <span class="eyebrow eyebrow--light">Kembali ke lemari</span>
             <p>Barang yang tepat mungkin sudah menunggumu.</p>
@@ -17,8 +17,8 @@
                 <?= csrf_field() ?>
                 <input type="hidden" name="next" value="<?= e($next ?? '') ?>">
                 <div class="field">
-                    <label for="login-email">Email</label>
-                    <input id="login-email" type="email" name="email" value="<?= old('email') ?>" autocomplete="email" placeholder="nama@email.com" required>
+                    <label for="login-email">Surel</label>
+                    <input id="login-email" type="email" name="email" value="<?= old('email') ?>" autocomplete="email" placeholder="nama@contoh.id" required>
                 </div>
                 <div class="field">
                     <label for="login-password">Kata sandi</label>
@@ -42,7 +42,7 @@
                         <span>Penjual</span><small>alya@rewear.id</small>
                     </button>
                     <button type="button" data-demo-email="admin@rewear.id" data-demo-password="admin123">
-                        <span>Admin</span><small>admin@rewear.id</small>
+                        <span>Administrator</span><small>admin@rewear.id</small>
                     </button>
                 </div>
                 <small class="demo-accounts__hint">Pilih salah satu untuk mengisi formulir secara otomatis.</small>

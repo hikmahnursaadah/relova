@@ -37,7 +37,7 @@ class OrderController extends Controller
             $layout = 'seller';
         }
 
-        $canCancel = (int) $order['buyer_id'] === Auth::id() && $order['status'] === 'menunggu';
+        $canCancel = (int) $order['buyer_id'] === Auth::id() && in_array($order['status'], ['menunggu', 'dikonfirmasi', 'diproses'], true);
         $canReview = (int) $order['buyer_id'] === Auth::id() && $orderModel->canReview((int) $order['id'], Auth::id());
         $this->render('orders/detail', [
             'title' => 'Pesanan ' . $order['order_number'] . ' — re:wear',
@@ -57,8 +57,8 @@ class OrderController extends Controller
             Session::flash('error', 'Pesanan tidak ditemukan.');
             $this->redirect('/pesanan');
         }
-        if ($order['status'] !== 'menunggu') {
-            Session::flash('error', 'Pesanan ini sudah diproses penjual sehingga tidak dapat dibatalkan.');
+        if (!in_array($order['status'], ['menunggu', 'dikonfirmasi', 'diproses'], true)) {
+            Session::flash('error', 'Pembatalan hanya dapat dilakukan sebelum pesanan dikirim.');
             $this->redirect('/pesanan/' . $order['id']);
         }
 

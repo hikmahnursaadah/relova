@@ -11,7 +11,7 @@ $chatUnread = $navUser && !Auth::isAdmin() ? (new ChatModel())->unreadCount(Auth
         <div class="navbar-top">
             <a class="brand" href="<?= url('/') ?>" aria-label="re:wear — Beranda">
                 <span class="brand__word">re<span class="brand__colon">:</span>wear</span>
-                <span class="brand__note">preloved fashion</span>
+                <span class="brand__note">pakaian bekas terawat</span>
             </a>
 
             <div class="nav-utilities">
@@ -90,7 +90,7 @@ $chatUnread = $navUser && !Auth::isAdmin() ? (new ChatModel())->unreadCount(Auth
                             </div>
                             <nav class="nav-account__links" aria-label="Menu akun">
                                 <?php if (Auth::isAdmin()): ?>
-                                    <a href="<?= url('/admin') ?>"><?= icon('grid') ?> Dasbor admin</a>
+                                    <a href="<?= url('/admin') ?>"><?= icon('grid') ?> Dasbor administrator</a>
                                 <?php else: ?>
                                     <a href="<?= url('/profil') ?>"><?= icon('user') ?> Profil saya</a>
                                     <a href="<?= url('/pesanan') ?>"><?= icon('box') ?> Pesanan</a>
@@ -127,14 +127,14 @@ $chatUnread = $navUser && !Auth::isAdmin() ? (new ChatModel())->unreadCount(Auth
                             <span class="clothing-tag__card">
                                 <span class="clothing-tag__icon"><?= icon('hanger') ?></span>
                                 <span class="clothing-tag__copy">
-                                    <strong>preloved</strong>
+                                    <strong>bekas terawat</strong>
                                     <small>pilih cerita berikutnya</small>
                                 </span>
                                 <span class="clothing-tag__code">RW—02</span>
                             </span>
                         </div>
                     </div>
-                    <a class="nav-link <?= active_nav('/studio-3d') ?>" href="<?= url('/studio-3d') ?>"><span>03</span>Studio 3D</a>
+                    <a class="nav-link <?= active_nav('/studio-3d') ?>" href="<?= url('/studio-3d') ?>"><span>03</span>Studio Manekin</a>
                     <a class="nav-link <?= active_nav('/jual') ?>" href="<?= url('/jual') ?>"><span>04</span>Jual</a>
                     <a class="nav-link <?= active_nav('/tentang') ?>" href="<?= url('/tentang') ?>"><span>05</span>Tentang Kami</a>
                 </nav>

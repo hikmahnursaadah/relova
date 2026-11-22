@@ -5,17 +5,18 @@ $styleClasses = ['style-card--wide', 'style-card--tall', 'style-card--medium', '
 $categoryCopy = [
     'atasan' => 'Kemeja, kaos, blus, dan rajutan dengan cerita baru.',
     'bawahan' => 'Denim, rok, dan celana dengan siluet yang tetap relevan.',
-    'outerwear' => 'Lapisan luar untuk hari yang lebih dingin dan berani.',
+    'outerwear' => 'Jaket dan mantel untuk hari yang lebih dingin dan berani.',
+    'dress' => 'Gaun dengan jatuh kain yang indah untuk banyak kesempatan.',
     'sepatu' => 'Dari sneakers harian sampai sepatu kulit terawat.',
-    'aksesori' => 'Kurasi aksesori sedang kami siapkan. Untuk sekarang, temukan pakaian dan sepatu pilihan.',
 ];
+$liveStats = $liveStats ?? ['products' => 0, 'sellers' => 0, 'cities' => 0];
 ?>
 <section class="hero" data-hero>
     <div class="hero__noise" aria-hidden="true"></div>
     <div class="hero__grid">
         <div class="hero__copy">
             <div class="hero__eyebrow" data-hero-reveal>
-                <span class="eyebrow">Preloved fashion — kurasi vol. 02</span>
+                <span class="eyebrow">Pakaian bekas terawat — kurasi edisi 02</span>
                 <span class="hero__edition">Bandung / Jakarta</span>
             </div>
             <h1 class="hero__title" data-hero-title>
@@ -24,7 +25,7 @@ $categoryCopy = [
                 <span class="hero__title-last"><em>Kedua.</em><span class="hero__title-mark">(02)</span></span>
             </h1>
             <p class="hero__description" data-hero-reveal>
-                Temukan fashion preloved pilihan atau beri kesempatan baru pada pakaian yang sudah tidak kamu gunakan. Dikurasi dengan teliti, siap dipakai untuk cerita berikutnya.
+                Temukan pakaian dan sepatu bekas pilihan, atau beri kesempatan baru pada barang yang sudah tidak kamu gunakan. Setiap produk dikurasi dengan teliti dan siap menemani cerita berikutnya.
             </p>
             <div class="hero__actions" data-hero-reveal>
                 <a href="<?= url('/jelajahi') ?>" class="button button--dark">Jelajahi Koleksi <?= icon('arrow-up-right') ?></a>
@@ -32,12 +33,12 @@ $categoryCopy = [
             </div>
             <div class="hero__footnotes" data-hero-reveal>
                 <div class="hero__stat">
-                    <strong><?= e($settings['impact_items'] ?? '1284') ?><span>+</span></strong>
-                    <small>pakaian terselamatkan</small>
+                    <strong><?= number_format((int) $liveStats['products'], 0, ',', '.') ?></strong>
+                    <small>produk aktif saat ini</small>
                 </div>
                 <div class="hero__stat">
-                    <strong><?= e($settings['impact_cities'] ?? '38') ?></strong>
-                    <small>kota di Indonesia</small>
+                    <strong><?= number_format((int) $liveStats['sellers'], 0, ',', '.') ?></strong>
+                    <small>penjual dengan etalase aktif</small>
                 </div>
                 <p class="hero__note">Setiap produk diperiksa.<br>Setiap cerita dijaga.</p>
             </div>
@@ -45,13 +46,13 @@ $categoryCopy = [
 
         <div class="hero__visual" data-mannequin-area>
             <div class="hero__arch" aria-hidden="true">
-                <span class="hero__arch-label">THE PRELOVED EDIT / 2026</span>
-                <span class="hero__arch-index">N° 02</span>
+                <span class="hero__arch-label">ARSIP PAKAIAN BEKAS / <?= date('Y') ?></span>
+                <span class="hero__arch-index">02</span>
             </div>
             <div class="hero__stage">
                 <div class="mannequin-canvas" data-mannequin data-mode="hero" aria-label="Manekin 3D interaktif yang dapat digerakkan dengan kursor"></div>
                 <div class="mannequin-fallback" data-mannequin-fallback aria-hidden="true">
-                    <svg viewBox="0 0 260 620" role="img" aria-label="Ilustrasi manekin mengenakan pakaian preloved">
+                    <svg viewBox="0 0 260 620" role="img" aria-label="Ilustrasi manekin mengenakan pakaian bekas terawat">
                         <defs>
                             <linearGradient id="bodyIvory" x1="0" y1="0" x2="1" y2="1">
                                 <stop offset="0" stop-color="#faf6ee"/>
@@ -98,7 +99,7 @@ $categoryCopy = [
                     </div>
                     <div class="outfit-panel__name-row">
                         <strong data-outfit-name>Kasual</strong>
-                        <button type="button" class="outfit-play" data-outfit-play aria-label="Hentikan pergantian outfit otomatis">
+                        <button type="button" class="outfit-play" data-outfit-play aria-label="Hentikan pergantian gaya otomatis">
                             <span data-outfit-play-icon><?= icon('pause') ?></span>
                         </button>
                     </div>
@@ -112,7 +113,7 @@ $categoryCopy = [
                     <div class="outfit-progress"><span data-outfit-progress></span></div>
                 </div>
             </div>
-            <span class="hero__vertical-note">SCROLL TO DISCOVER</span>
+            <span class="hero__vertical-note">GULIR UNTUK MENJELAJAH</span>
         </div>
     </div>
     <div class="hero__bottom">
@@ -132,11 +133,11 @@ $categoryCopy = [
     <div class="marquee-band__track">
         <span>Kurasi manual</span><span class="marquee-band__icon">✳</span>
         <span>Foto asli penjual</span><span class="marquee-band__icon">✳</span>
-        <span>Preloved terawat</span><span class="marquee-band__icon">✳</span>
+        <span>Pakaian terawat</span><span class="marquee-band__icon">✳</span>
         <span>Cerita yang berlanjut</span><span class="marquee-band__icon">✳</span>
         <span>Kurasi manual</span><span class="marquee-band__icon">✳</span>
         <span>Foto asli penjual</span><span class="marquee-band__icon">✳</span>
-        <span>Preloved terawat</span><span class="marquee-band__icon">✳</span>
+        <span>Pakaian terawat</span><span class="marquee-band__icon">✳</span>
         <span>Cerita yang berlanjut</span><span class="marquee-band__icon">✳</span>
     </div>
 </div>
@@ -148,29 +149,24 @@ $categoryCopy = [
                 <span class="eyebrow" data-reveal>Kurasi berdasarkan karakter</span>
                 <h2 data-reveal>Jelajahi <em>Berdasarkan Gaya</em></h2>
             </div>
-            <p class="section-heading__copy" data-reveal>Temukan pilihan fashion preloved yang sesuai dengan karakter dan gaya kamu. Setiap potong dipilih untuk tetap relevan, bukan sekadar bertahan.</p>
+            <p class="section-heading__copy" data-reveal>Temukan pakaian dan sepatu bekas terawat yang sesuai dengan karakter dan gaya kamu. Setiap potong dipilih untuk tetap relevan, bukan sekadar bertahan.</p>
         </header>
 
         <div class="style-grid">
             <?php foreach ($categories as $index => $category): ?>
-                <?php $isSoon = $category['slug'] === 'aksesori'; ?>
-                <article class="style-card <?= e($styleClasses[$index] ?? '') ?> <?= $isSoon ? 'style-card--soon' : '' ?>" data-reveal-card>
-                    <a href="<?= $isSoon ? url('/jelajahi') : url('/jelajahi?kategori[]=' . $category['slug']) ?>" class="style-card__link">
+                <article class="style-card <?= e($styleClasses[$index] ?? '') ?>" data-reveal-card>
+                    <a href="<?= url('/jelajahi?kategori[]=' . $category['slug']) ?>" class="style-card__link">
                         <div class="style-card__media">
                             <img src="<?= e(media_url($category['image'])) ?>" alt="<?= e($category['name']) ?>" loading="lazy" decoding="async">
                             <span class="style-card__index"><?= str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT) ?></span>
-                            <?php if ($isSoon): ?>
-                                <span class="style-card__badge">Segera</span>
-                            <?php else: ?>
-                                <span class="style-card__count"><?= (int) $category['product_count'] ?> produk</span>
-                            <?php endif; ?>
+                            <span class="style-card__count"><?= (int) $category['product_count'] ?> produk</span>
                         </div>
                         <div class="style-card__body">
                             <div>
                                 <h3><?= e($category['name']) ?></h3>
                                 <p><?= e($categoryCopy[$category['slug']] ?? $category['description']) ?></p>
                             </div>
-                            <span class="style-card__arrow"><?= $isSoon ? icon('sparkle') : icon('arrow-up-right') ?></span>
+                            <span class="style-card__arrow"><?= icon('arrow-up-right') ?></span>
                         </div>
                     </a>
                 </article>
@@ -200,8 +196,8 @@ $categoryCopy = [
 
         <div class="featured-split">
             <div class="featured-split__note" data-reveal>
-                <span class="featured-split__number"><?= count($featured) + count($newest) ?></span>
-                <p>potongan pilihan<br>dari lemari terkurasi</p>
+                <span class="featured-split__number"><?= (int) $liveStats['products'] ?></span>
+                <p>produk aktif<br>dari lemari terkurasi</p>
                 <span class="featured-split__line"></span>
                 <a href="<?= url('/jelajahi?urutkan=terbaru') ?>">Lihat yang baru masuk <?= icon('arrow-up-right') ?></a>
             </div>
@@ -221,7 +217,7 @@ $categoryCopy = [
                 <img src="<?= asset('images/products/rak-netral.jpg') ?>" alt="Deretan pakaian netral yang siap diberi cerita baru" loading="lazy">
                 <span class="editorial-frame__caption">Arsip 02 — warna yang tidak lekang</span>
             </div>
-            <span class="editorial-stamp"><?= icon('recycle') ?> selected with care</span>
+            <span class="editorial-stamp"><?= icon('recycle') ?> dipilih dengan teliti</span>
         </div>
         <div class="editorial-section__copy">
             <span class="eyebrow" data-reveal>Filosofi re:wear</span>
@@ -251,7 +247,7 @@ $categoryCopy = [
                 </div>
             </div>
             <blockquote class="editorial-quote" data-reveal>
-                “Cara paling indah merawat fashion adalah memakainya lebih lama.”
+                “Cara paling indah merawat pakaian adalah memakainya lebih lama.”
                 <cite>— Catatan kurator re:wear</cite>
             </blockquote>
         </div>
@@ -266,20 +262,20 @@ $categoryCopy = [
         </div>
         <div class="impact-grid">
             <div class="impact-stat" data-reveal>
-                <strong data-count="<?= (int) ($settings['impact_items'] ?? 1284) ?>"><?= e($settings['impact_items'] ?? '1.284') ?></strong>
-                <span>pakaian & sepatu<br>mendapat rumah baru</span>
+                <strong data-count="<?= (int) $liveStats['products'] ?>"><?= number_format((int) $liveStats['products'], 0, ',', '.') ?></strong>
+                <span>pakaian dan sepatu<br>sedang ditawarkan</span>
             </div>
             <div class="impact-stat" data-reveal>
-                <strong data-count="<?= (int) ($settings['impact_sellers'] ?? 326) ?>"><?= e($settings['impact_sellers'] ?? '326') ?></strong>
-                <span>penjual aktif<br>di seluruh Indonesia</span>
+                <strong data-count="<?= (int) $liveStats['sellers'] ?>"><?= number_format((int) $liveStats['sellers'], 0, ',', '.') ?></strong>
+                <span>penjual dengan<br>etalase aktif</span>
             </div>
             <div class="impact-stat" data-reveal>
-                <strong data-count="<?= (int) ($settings['impact_cities'] ?? 38) ?>"><?= e($settings['impact_cities'] ?? '38') ?></strong>
-                <span>kota terhubung<br>oleh cerita fashion</span>
+                <strong data-count="<?= (int) $liveStats['cities'] ?>"><?= number_format((int) $liveStats['cities'], 0, ',', '.') ?></strong>
+                <span>kota asal penjual<br>yang terhubung</span>
             </div>
             <div class="impact-stat impact-stat--text" data-reveal>
                 <strong>1 : 1</strong>
-                <span>setiap barang yang terjual<br>adalah satu yang tidak dibuang</span>
+                <span>setiap barang yang dijual<br>adalah satu yang tetap dipakai</span>
             </div>
         </div>
     </div>

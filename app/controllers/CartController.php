@@ -13,12 +13,30 @@ class CartController extends Controller
         Session::put('cart', array_values(array_unique(array_map('intval', $ids))));
     }
 
+    private function rejectAdmin(): void
+    {
+        if (!Auth::isAdmin()) {
+            return;
+        }
+        $message = 'Administrator tidak dapat menggunakan keranjang belanja.';
+        if (request_wants_json()) {
+            json_response(['ok' => false, 'message' => $message], 403);
+        }
+        Session::flash('error', $message);
+        $this->redirect('/admin');
+    }
+
     private function items(): array
     {
         $model = new ProductModel();
+        $cartIds = $this->cartIds();
+        $reservedIds = (new OrderModel())->reservedProductIds($cartIds);
         $items = [];
         $validIds = [];
-        foreach ($this->cartIds() as $id) {
+        foreach ($cartIds as $id) {
+            if (in_array($id, $reservedIds, true)) {
+                continue;
+            }
             $product = $model->find($id);
             if ($product && $product['status'] === 'aktif' && $product['seller_role'] !== 'admin') {
                 if (Auth::check() && (int) $product['seller_id'] === Auth::id()) {
@@ -29,7 +47,7 @@ class CartController extends Controller
                 $validIds[] = $id;
             }
         }
-        if (count($validIds) !== count($this->cartIds())) {
+        if (count($validIds) !== count($cartIds)) {
             $this->saveCart($validIds);
         }
         return $items;
@@ -74,6 +92,7 @@ class CartController extends Controller
     public function add(string $id): void
     {
         Auth::requireLogin('Silakan masuk untuk menambahkan produk ke keranjang.');
+        $this->rejectAdmin();
         $productModel = new ProductModel();
         $product = $productModel->find((int) $id);
         if (!$product || $product['status'] !== 'aktif') {
@@ -118,6 +137,7 @@ class CartController extends Controller
     public function remove(string $id): void
     {
         Auth::requireLogin();
+        $this->rejectAdmin();
         $ids = array_values(array_filter($this->cartIds(), fn ($cartId) => $cartId !== (int) $id));
         $this->saveCart($ids);
         Session::flash('info', 'Produk dihapus dari keranjang.');
@@ -127,6 +147,7 @@ class CartController extends Controller
     public function clear(): void
     {
         Auth::requireLogin();
+        $this->rejectAdmin();
         Session::forget('cart');
         Session::flash('info', 'Keranjang berhasil dikosongkan.');
         $this->redirect('/keranjang');
@@ -154,6 +175,7 @@ class CartController extends Controller
     public function place(): void
     {
         Auth::requireLogin('Silakan masuk untuk membuat pesanan.');
+        $this->rejectAdmin();
         $items = $this->items();
         if (!$items) {
             Session::flash('error', 'Keranjangmu kosong atau produk sudah tidak tersedia.');
@@ -189,36 +211,52 @@ class CartController extends Controller
             $this->redirect('/checkout');
         }
 
-        $orderModel = new OrderModel();
-        $notification = new NotificationModel();
-        $created = [];
-        try {
-            foreach ($groups as $sellerId => $group) {
-                $orderItems = array_map(fn ($item) => [
+        $batchGroups = [];
+        foreach ($groups as $sellerId => $group) {
+            $batchGroups[$sellerId] = [
+                'seller_id' => (int) $sellerId,
+                'items' => array_map(fn ($item) => [
                     'product_id' => (int) $item['id'],
                     'title' => $item['title'],
                     'image' => $item['primary_image'],
                     'price' => (int) $item['price'],
-                ], $group['items']);
-                $orderId = $orderModel->create(Auth::id(), $sellerId, $orderItems, $shippingCosts[$sellerId], $address, $notes);
-                $created[] = $orderId;
-                $notification->add(
-                    $sellerId,
-                    'pesanan',
-                    'Pesanan baru masuk',
-                    Auth::user()['name'] . ' memesan ' . count($group['items']) . ' produk. Segera konfirmasi pesanan.',
-                    '/penjual/pesanan/' . $orderId
-                );
-            }
-            Session::forget('cart');
-            $this->render('cart/success', [
-                'title' => 'Pesanan Dibuat — re:wear',
-                'page' => 'order-success',
-                'orderIds' => $created,
-            ], Auth::isSeller() ? 'seller' : 'buyer');
+                ], $group['items']),
+            ];
+        }
+
+        try {
+            $created = (new OrderModel())->createBatchForBuyer(Auth::id(), $batchGroups, $shippingCosts, $address, $notes);
         } catch (Throwable $e) {
             Session::flash('error', 'Pesanan gagal dibuat. Silakan coba lagi.');
             $this->redirect('/checkout');
         }
+
+        $notification = new NotificationModel();
+        $buyerName = Auth::user()['name'];
+        $index = 0;
+        foreach ($batchGroups as $sellerId => $group) {
+            $orderId = $created[$index] ?? null;
+            $index++;
+            if (!$orderId) {
+                continue;
+            }
+            try {
+                $notification->add(
+                    (int) $sellerId,
+                    'pesanan',
+                    'Pesanan baru masuk',
+                    $buyerName . ' memesan ' . count($group['items']) . ' produk. Segera konfirmasi pesanan.',
+                    '/penjual/pesanan/' . $orderId
+                );
+            } catch (Throwable $e) {
+                // Notifikasi bersifat tambahan dan tidak membatalkan pesanan yang sudah dibuat.
+            }
+        }
+        Session::forget('cart');
+        $this->render('cart/success', [
+            'title' => 'Pesanan Dibuat — re:wear',
+            'page' => 'order-success',
+            'orderIds' => $created,
+        ], Auth::isSeller() ? 'seller' : 'buyer');
     }
 }

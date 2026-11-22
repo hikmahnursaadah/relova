@@ -16,7 +16,7 @@ $defectValue = old('defect', $product['defect'] ?? '');
     <header class="dashboard-page__head">
         <div>
             <span class="eyebrow"><?= $isEdit ? 'Perbarui etalase' : 'Produk baru' ?></span>
-            <h1><?= $isEdit ? 'Edit <em>produk.</em>' : 'Tambah <em>produk.</em>' ?></h1>
+            <h1><?= $isEdit ? 'Ubah <em>produk.</em>' : 'Tambah <em>produk.</em>' ?></h1>
             <p class="dashboard-page__sub">Tulis apa adanya. Pembeli yang tepat akan menghargai kejujuranmu.</p>
         </div>
         <a href="<?= url('/penjual/produk') ?>" class="text-link"><?= icon('arrow-left') ?> Kembali ke produk</a>

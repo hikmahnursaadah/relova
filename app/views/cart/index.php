@@ -15,7 +15,7 @@ $itemCount = count($items);
         <div class="empty-state empty-state--panel">
             <span class="empty-state__icon"><?= icon('bag') ?></span>
             <h2>Keranjangmu masih lapang.</h2>
-            <p>Barang preloved hanya ada satu. Temukan potongan yang tepat sebelum berpindah tangan.</p>
+            <p>Barang bekas biasanya hanya ada satu. Temukan potongan yang tepat sebelum berpindah tangan.</p>
             <a href="<?= url('/jelajahi') ?>" class="button button--dark">Jelajahi Koleksi <?= icon('arrow-right') ?></a>
         </div>
     <?php else: ?>

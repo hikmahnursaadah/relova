@@ -41,7 +41,7 @@ class ProfileController extends Controller
             $errors[] = 'Nama pengguna harus 3–20 karakter tanpa spasi.';
         }
         if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
-            $errors[] = 'Format email belum benar.';
+            $errors[] = 'Format surel belum benar.';
         }
         if (mb_strlen($data['bio']) > 280) {
             $errors[] = 'Bio maksimal 280 karakter.';

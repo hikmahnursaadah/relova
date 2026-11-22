@@ -14,7 +14,7 @@ class AdminController extends Controller
         $orderModel = new OrderModel();
         $reportModel = new ReportModel();
         $this->render('admin/dashboard', [
-            'title' => 'Dasbor Admin — re:wear',
+            'title' => 'Dasbor Administrator — re:wear',
             'page' => 'admin-dashboard',
             'userTotal' => $userModel->total(),
             'newUsers' => $userModel->newThisMonth(),
@@ -187,8 +187,16 @@ class AdminController extends Controller
             $this->redirect('/admin/transaksi');
         }
         $status = (string) post('status');
-        if (!array_key_exists($status, order_statuses())) {
-            Session::flash('error', 'Status transaksi tidak valid.');
+        $allowed = [
+            'menunggu' => ['dikonfirmasi', 'dibatalkan'],
+            'dikonfirmasi' => ['diproses', 'dibatalkan'],
+            'diproses' => ['dikirim', 'dibatalkan'],
+            'dikirim' => ['selesai'],
+            'selesai' => [],
+            'dibatalkan' => [],
+        ];
+        if (!in_array($status, $allowed[$order['status']] ?? [], true)) {
+            Session::flash('error', 'Perubahan status tersebut tidak dapat dilakukan.');
             $this->redirect('/admin/transaksi/' . $order['id']);
         }
         $orderModel->updateStatus((int) $order['id'], $status);
@@ -218,12 +226,12 @@ class AdminController extends Controller
 
     public function updateSettings(): void
     {
-        $allowed = ['site_name', 'site_tagline', 'contact_email', 'contact_phone', 'city', 'instagram', 'impact_items', 'impact_sellers', 'impact_cities', 'moderation_note'];
+        $allowed = ['site_name', 'site_tagline', 'contact_email', 'contact_phone', 'city', 'instagram', 'moderation_note'];
         $data = [];
         foreach ($allowed as $key) {
             $value = trim((string) post($key));
             if ($key === 'contact_email' && $value !== '' && !filter_var($value, FILTER_VALIDATE_EMAIL)) {
-                Session::flash('error', 'Format email kontak belum benar.');
+                Session::flash('error', 'Format surel kontak belum benar.');
                 $this->redirect('/admin/pengaturan');
             }
             $data[$key] = $value;
@@ -244,7 +252,7 @@ class AdminController extends Controller
             'sort_order' => (int) post('sort_order'),
             'is_active' => post('is_active') ? 1 : 0,
         ];
-        if (mb_strlen($data['name']) < 3 || !preg_match('/^[a-z0-9-]+$/', $data['slug']) || !in_array($data['type'], ['atasan', 'bawahan', 'outerwear', 'sepatu', 'aksesori'], true)) {
+        if (mb_strlen($data['name']) < 3 || !preg_match('/^[a-z0-9-]+$/', $data['slug']) || !in_array($data['type'], ['atasan', 'bawahan', 'outerwear', 'dress', 'sepatu'], true)) {
             Session::flash('error', 'Data kategori belum lengkap atau slug tidak valid.');
             $this->redirect('/admin/pengaturan#kategori');
         }
@@ -273,8 +281,8 @@ class AdminController extends Controller
             'sort_order' => (int) post('sort_order'),
             'is_active' => post('is_active') ? 1 : 0,
         ];
-        if (mb_strlen($data['name']) < 3 || !preg_match('/^[a-z0-9-]+$/', $data['slug'])) {
-            Session::flash('error', 'Nama dan slug kategori belum valid.');
+        if (mb_strlen($data['name']) < 3 || !preg_match('/^[a-z0-9-]+$/', $data['slug']) || !in_array($data['type'], ['atasan', 'bawahan', 'outerwear', 'dress', 'sepatu'], true)) {
+            Session::flash('error', 'Nama, slug, dan jenis kategori belum valid.');
             $this->redirect('/admin/pengaturan#kategori');
         }
         $duplicate = (new CategoryModel())->findBySlug($data['slug']);
@@ -289,12 +297,17 @@ class AdminController extends Controller
 
     public function resolveReport(string $id): void
     {
+        $reportModel = new ReportModel();
+        if (!$reportModel->find((int) $id)) {
+            Session::flash('error', 'Laporan tidak ditemukan.');
+            $this->redirect('/admin/pengaturan#laporan');
+        }
         $status = (string) post('status');
         if (!in_array($status, ['baru', 'diproses', 'selesai'], true)) {
             Session::flash('error', 'Status laporan tidak valid.');
             $this->redirect('/admin/pengaturan#laporan');
         }
-        (new ReportModel())->updateStatus((int) $id, $status);
+        $reportModel->updateStatus((int) $id, $status);
         Session::flash('success', 'Status laporan berhasil diperbarui.');
         $this->redirect('/admin/pengaturan#laporan');
     }

@@ -20,7 +20,7 @@ $statusOptions = ['' => 'Semua status', 'aktif' => 'Aktif', 'ditangguhkan' => 'D
         <div class="admin-filter-bar__search">
             <?= icon('search') ?>
             <label class="sr-only" for="admin-user-search">Cari pengguna</label>
-            <input id="admin-user-search" type="search" name="q" value="<?= e($filters['q']) ?>" placeholder="Cari nama, email, atau nama pengguna…">
+            <input id="admin-user-search" type="search" name="q" value="<?= e($filters['q']) ?>" placeholder="Cari nama, surel, atau nama pengguna…">
         </div>
         <label class="sr-only" for="admin-user-role">Peran</label>
         <select id="admin-user-role" name="peran">

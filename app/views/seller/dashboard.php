@@ -74,7 +74,7 @@ $reviewTotal = (int) ($reviewStats['total'] ?? 0);
                                 </div>
                                 <span class="status <?= e(status_produk_class($product['status'])) ?>"><?= e(status_produk_label($product['status'])) ?></span>
                                 <span class="seller-product-row__views"><?= icon('eye') ?> <?= (int) $product['view_count'] ?></span>
-                                <a href="<?= url('/penjual/produk/' . $product['id'] . '/edit') ?>" class="table-link" aria-label="Edit <?= e($product['title']) ?>"><?= icon('edit') ?></a>
+                                <a href="<?= url('/penjual/produk/' . $product['id'] . '/edit') ?>" class="table-link" aria-label="Ubah <?= e($product['title']) ?>"><?= icon('edit') ?></a>
                             </article>
                         <?php endforeach; ?>
                     </div>

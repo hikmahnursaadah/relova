@@ -16,12 +16,12 @@ class Seeder
 
             $users = [
                 ['Nadia Prameswari', 'nadia', 'admin@rewear.id', $adminPassword, 'admin', '0812 1000 2201', 'Jakarta', 'Mengelola komunitas re:wear dan menjaga kualitas kurasi.', '-180 days'],
-                ['Alya Rahmawati', 'alya', 'alya@rewear.id', $password, 'penjual', '0813 2211 8890', 'Bandung', 'Penikmat fashion vintage dan penggemar warna netral. Setiap barang dicuci sebelum dikirim.', '-160 days'],
+                ['Alya Rahmawati', 'alya', 'alya@rewear.id', $password, 'penjual', '0813 2211 8890', 'Bandung', 'Penikmat gaya klasik dan penggemar warna netral. Setiap barang dicuci sebelum dikirim.', '-160 days'],
                 ['Dimas Aditya', 'dimas', 'dimas@rewear.id', $password, 'penjual', '0857 8890 1122', 'Yogyakarta', 'Menjual koleksi pribadi yang jarang dipakai. Semua foto diambil apa adanya.', '-150 days'],
-                ['Sinta Maharani', 'sinta', 'sinta@rewear.id', $password, 'penjual', '0819 3344 7765', 'Jakarta', 'Pecinta siluet klasik dan warna earthy. Selalu siap menjawab pertanyaan pembeli.', '-130 days'],
+                ['Sinta Maharani', 'sinta', 'sinta@rewear.id', $password, 'penjual', '0819 3344 7765', 'Jakarta', 'Pecinta siluet klasik dan warna bumi. Selalu siap menjawab pertanyaan pembeli.', '-130 days'],
                 ['Raka Pratama', 'raka', 'raka@rewear.id', $password, 'pembeli', '0821 5566 7788', 'Surabaya', 'Mencari pakaian berkualitas dengan cerita di baliknya.', '-90 days'],
-                ['Maya Kusuma', 'maya', 'maya@rewear.id', $password, 'pembeli', '0838 1122 3344', 'Semarang', 'Suka memadupadankan outfit netral dan sepatu statement.', '-60 days'],
-                ['Bima Saputra', 'bima', 'bima@rewear.id', $password, 'penjual', '0812 9988 4455', 'Malang', 'Kolektor sneaker dan streetwear. Open untuk negosiasi yang wajar.', '-45 days'],
+                ['Maya Kusuma', 'maya', 'maya@rewear.id', $password, 'pembeli', '0838 1122 3344', 'Semarang', 'Suka memadupadankan gaya netral dan sepatu yang menonjol.', '-60 days'],
+                ['Bima Saputra', 'bima', 'bima@rewear.id', $password, 'penjual', '0812 9988 4455', 'Malang', 'Kolektor sepatu olahraga dan gaya jalanan. Terbuka untuk negosiasi yang wajar.', '-45 days'],
             ];
 
             $userStmt = $db->prepare(
@@ -43,11 +43,11 @@ class Seeder
             }
 
             $categories = [
-                ['Pakaian Atasan', 'atasan', 'Kemeja, kaos, blus, sweater, dan gaun pilihan yang siap dipakai kembali.', 'assets/images/products/flatlay-putih.jpg', 'atasan', 1, 1],
-                ['Celana dan Rok', 'bawahan', 'Potongan denim, rok, dan celana dengan siluet yang tetap relevan.', 'assets/images/products/jeans-levis.jpg', 'bawahan', 2, 1],
-                ['Jaket dan Outerwear', 'outerwear', 'Lapisan luar untuk melengkapi gaya harian maupun tampilan malam.', 'assets/images/products/mantel-camel.jpg', 'outerwear', 3, 1],
-                ['Sepatu', 'sepatu', 'Sneakers, sepatu kulit, dan alas kaki preloved yang terawat.', 'assets/images/products/sneaker-pastel.jpg', 'sepatu', 4, 1],
-                ['Tas dan Aksesori Fashion', 'aksesori', 'Kurasi aksesori untuk melengkapi gaya. Kategori ini akan hadir segera.', 'assets/images/products/tas-kulit.jpg', 'aksesori', 5, 0],
+                ['Atasan', 'atasan', 'Kemeja, kaos, blus, dan rajutan yang siap dipakai kembali.', 'assets/images/products/flatlay-putih.jpg', 'atasan', 1, 1],
+                ['Bawahan', 'bawahan', 'Denim, rok, dan celana dengan siluet yang tetap relevan.', 'assets/images/products/jeans-levis.jpg', 'bawahan', 2, 1],
+                ['Outerwear', 'outerwear', 'Jaket, mantel, dan lapisan luar untuk melengkapi gaya harian.', 'assets/images/products/mantel-camel.jpg', 'outerwear', 3, 1],
+                ['Dress', 'dress', 'Gaun dan jumpsuit dengan jatuh kain yang tetap indah.', 'assets/images/products/gaun-merah.jpg', 'dress', 4, 1],
+                ['Sepatu', 'sepatu', 'Sneakers dan sepatu bekas terawat yang masih nyaman dipakai.', 'assets/images/products/sneaker-pastel.jpg', 'sepatu', 5, 1],
             ];
             $categoryStmt = $db->prepare(
                 'INSERT INTO categories (name, slug, description, image, type, sort_order, is_active) VALUES (?, ?, ?, ?, ?, ?, ?)'
@@ -62,21 +62,21 @@ class Seeder
                 [1, 'Kaos Katun Oversize Putih', 1, 'atasan', 'L', 89000, 'Sangat Baik', 'Kaos katun organik dengan potongan oversize dan jatuh yang lembut. Warna putih krem, adem, dan mudah dipadukan. Sudah dicuci bersih sebelum difoto.', 'Uniqlo', 'Putih', 'Serat kain sedikit melar di area kerah, tidak terlihat saat dipakai.', 'aktif', 1, [['assets/images/products/kaos-putih.jpg', 1], ['assets/images/products/flatlay-putih.jpg', 0]]],
                 [3, 'Straight Jeans Levi\'s 501', 2, 'bawahan', 'M', 245000, 'Baik', 'Straight jeans ikonik dengan bahan denim tebal yang sudah jatuh sempurna. Pas untuk gaya kasual maupun vintage. Ukuran pinggang setara 30 inci.', 'Levi\'s', 'Indigo', 'Warna sedikit memudar di bagian lutut. Semua kancing dan resleting berfungsi baik.', 'aktif', 2, [['assets/images/products/jeans-levis.jpg', 1]]],
                 [4, 'Jaket Kulit Biker Hitam', 3, 'outerwear', 'M', 425000, 'Sangat Baik', 'Jaket kulit biker dengan siluet tegas dan lining satin yang masih mulus. Cocok untuk lapisan luar saat malam. Bahan terasa lembut dan tidak kaku.', 'Zara', 'Hitam', 'Tidak ada cacat berarti. Ada bekas lipatan halus di bagian lengan.', 'aktif', 3, [['assets/images/products/jaket-kulit.jpg', 1]]],
-                [7, 'Sneakers Coklat Retro', 4, 'sepatu', '42', 315000, 'Baik', 'Sneakers low-top bernuansa retro dengan upper kanvas coklat dan aksen suede. Insole empuk, nyaman untuk pemakaian harian.', 'Nike', 'Coklat', 'Sol luar menguning tipis. Bagian atas masih sangat layak dan sudah dibersihkan.', 'aktif', 4, [['assets/images/products/sneaker-coklat.jpg', 1]]],
-                [4, 'Gaun Satin Merah', 1, 'atasan', 'S', 210000, 'Sangat Baik', 'Gaun satin merah dengan potongan A-line dan bagian pinggang terpasang rapi. Panjang di bawah lutut. Pernah dipakai sekali untuk acara keluarga.', 'Mango', 'Merah', 'Tidak ada cacat. Jahitan dan resleting dalam kondisi sempurna.', 'aktif', 5, [['assets/images/products/gaun-merah.jpg', 1]]],
-                [2, 'Ponco Rajut Krim', 1, 'atasan', 'All Size', 135000, 'Baik', 'Ponco rajut berwarna krim dengan detail rumbai di bagian bawah. Bahan hangat namun tetap ringan, pas untuk cuaca sejuk atau layering.', 'Handmade', 'Krim', 'Rumbai bagian kanan sedikit menggulung. Tidak ada lubang pada rajutan.', 'aktif', 6, [['assets/images/products/ponco-rajut.jpg', 1]]],
-                [2, 'Sneakers Pastel Limited', 4, 'sepatu', '39', 480000, 'Sangat Baik', 'Sneakers warna pastel dengan panel kulit sintetis dan sol tebal. Warna lembut yang mudah dipadukan. Kondisi hampir seperti baru.', 'Nike', 'Pastel', 'Bagian dalam bersih, sol masih putih. Tanpa kotak asli.', 'aktif', 7, [['assets/images/products/sneaker-pastel.jpg', 1]]],
-                [4, 'Heels Floral Biru', 4, 'sepatu', '38', 175000, 'Baik', 'Pumps hak tinggi dengan motif floral biru yang ekspresif. Tinggi hak 8 cm. Cocok untuk acara semi-formal atau koleksi statement.', 'Zara', 'Biru', 'Hak kiri tergores halus. Bagian dalam sudah dibersihkan.', 'aktif', 8, [['assets/images/products/heels-bunga.jpg', 1]]],
+                [7, 'Sneakers Coklat Retro', 5, 'sepatu', '42', 315000, 'Baik', 'Sneakers low-top bernuansa retro dengan upper kanvas coklat dan aksen suede. Insole empuk, nyaman untuk pemakaian harian.', 'Nike', 'Coklat', 'Sol luar menguning tipis. Bagian atas masih sangat layak dan sudah dibersihkan.', 'aktif', 4, [['assets/images/products/sneaker-coklat.jpg', 1]]],
+                [4, 'Gaun Satin Merah', 4, 'dress', 'S', 210000, 'Sangat Baik', 'Gaun satin merah dengan potongan A-line dan bagian pinggang terpasang rapi. Panjang di bawah lutut. Pernah dipakai sekali untuk acara keluarga.', 'Mango', 'Merah', 'Tidak ada cacat. Jahitan dan resleting dalam kondisi sempurna.', 'aktif', 5, [['assets/images/products/gaun-merah.jpg', 1]]],
+                [2, 'Ponco Rajut Krim', 1, 'atasan', 'Satu Ukuran', 135000, 'Baik', 'Ponco rajut berwarna krim dengan detail rumbai di bagian bawah. Bahan hangat namun tetap ringan, pas untuk cuaca sejuk atau layering.', 'Handmade', 'Krim', 'Rumbai bagian kanan sedikit menggulung. Tidak ada lubang pada rajutan.', 'aktif', 6, [['assets/images/products/ponco-rajut.jpg', 1]]],
+                [2, 'Sneakers Pastel Limited', 5, 'sepatu', '39', 480000, 'Sangat Baik', 'Sneakers warna pastel dengan panel kulit sintetis dan sol tebal. Warna lembut yang mudah dipadukan. Kondisi hampir seperti baru.', 'Nike', 'Pastel', 'Bagian dalam bersih, sol masih putih. Tanpa kotak asli.', 'aktif', 7, [['assets/images/products/sneaker-pastel.jpg', 1]]],
+                [4, 'Heels Floral Biru', 5, 'sepatu', '38', 175000, 'Baik', 'Pumps hak tinggi dengan motif floral biru yang ekspresif. Tinggi hak 8 cm. Cocok untuk acara semi-formal atau koleksi yang berani.', 'Zara', 'Biru', 'Hak kiri tergores halus. Bagian dalam sudah dibersihkan.', 'aktif', 8, [['assets/images/products/heels-bunga.jpg', 1]]],
                 [3, 'Mantel Wol Camel', 3, 'outerwear', 'M', 385000, 'Sangat Baik', 'Mantel wol campuran dengan warna camel hangat dan ikat pinggang senada. Potongan longgar yang elegan, panjang di bawah lutut.', 'H&M', 'Camel', 'Ada sedikit bulu kain di bagian lengan. Tidak ada noda atau robekan.', 'aktif', 9, [['assets/images/products/mantel-camel.jpg', 1]]],
                 [7, 'Kaos Grafis Kucing KIIKI', 1, 'atasan', 'M', 95000, 'Baik', 'Kaos katun berwarna krem dengan grafis kucing biru yang playful. Potongan unisex dan sedikit boxy. Bahan sudah lembut karena sering dicuci.', 'KIIKI', 'Krem', 'Sablon bagian bawah sedikit memudar. Tidak ada lubang.', 'aktif', 10, [['assets/images/products/cardigan-krem.jpg', 1]]],
                 [2, 'Kemeja Putih Formal', 1, 'atasan', 'L', 120000, 'Sangat Baik', 'Kemeja putih slim fit dengan bahan katun poplin. Kerah dan manset masih tegak, cocok untuk kerja atau acara resmi.', 'Uniqlo', 'Putih', 'Tidak ada cacat berarti. Kancing lengkap.', 'aktif', 11, [['assets/images/products/kemeja-linen.jpg', 1]]],
                 [4, 'Rok A-line Hitam', 2, 'bawahan', 'S', 145000, 'Baik', 'Rok A-line hitam dengan pinggang tinggi dan lipatan yang jatuh rapi. Panjang di atas lutut. Bahan tebal, tidak menerawang.', 'Zara', 'Hitam', 'Ada bekas jahitan kecil di bagian pinggang dalam yang tidak terlihat.', 'aktif', 12, [['assets/images/products/rok-plisket.jpg', 1]]],
-                [3, 'Boots Kulit Coklat', 4, 'sepatu', '40', 365000, 'Baik', 'Boots kulit coklat dengan tali dan sol karet tebal. Semakin nyaman seiring pemakaian. Cocok untuk gaya kasual maupun earthy.', 'Dr. Martens', 'Coklat', 'Ada lecet halus di bagian tumit dan sol. Bahan kulit tetap lentur.', 'aktif', 13, [['assets/images/products/boots-kulit.jpg', 1]]],
+                [3, 'Boots Kulit Coklat', 5, 'sepatu', '40', 365000, 'Baik', 'Boots kulit coklat dengan tali dan sol karet tebal. Semakin nyaman seiring pemakaian. Cocok untuk gaya kasual maupun earthy.', 'Dr. Martens', 'Coklat', 'Ada lecet halus di bagian tumit dan sol. Bahan kulit tetap lentur.', 'aktif', 13, [['assets/images/products/boots-kulit.jpg', 1]]],
                 [3, 'Jaket Corduroy Coklat', 3, 'outerwear', 'L', 185000, 'Baik', 'Jaket corduroy coklat dengan kerah klasik dan dua kantong depan. Hangat untuk malam hari, potongan sedikit longgar.', 'Uniqlo', 'Coklat', 'Bagian siku menunjukkan pemakaian wajar. Semua kancing utuh.', 'aktif', 14, [['assets/images/products/jaket-coklat.jpg', 1]]],
                 [7, 'Sweater Rajut Merah', 1, 'atasan', 'M', 115000, 'Baik', 'Sweater rajut merah dengan potongan oversized dan tekstur lembut. Warna merah bata yang hangat, cocok untuk layering.', 'H&M', 'Merah', 'Sedikit pilling di bagian ketiak. Tidak ada lubang atau tarikan benang.', 'aktif', 15, [['assets/images/products/sweater-merah.jpg', 1]]],
                 [4, 'Blazer Katun Hitam', 3, 'outerwear', 'M', 275000, 'Sangat Baik', 'Blazer hitam berpotongan relaxed dengan dua kantong dan lining penuh. Bisa dipakai formal maupun kasual.', 'Massimo Dutti', 'Hitam', 'Tidak ada cacat berarti. Sudah dry clean.', 'aktif', 16, [['assets/images/products/blazer-hitam.jpg', 1]]],
-                [2, 'Cardigan Rajut Oatmeal', 1, 'atasan', 'All Size', 155000, 'Sangat Baik', 'Cardigan rajut warna oatmeal dengan kancing kayu. Jatuh longgar dan nyaman untuk cuaca dingin.', 'Muji', 'Oatmeal', 'Tidak ada cacat. Rajutan rapi tanpa pilling.', 'terjual', 17, [['assets/images/products/rak-netral.jpg', 1]]],
-                [3, 'Sneakers Putih Minimalis', 4, 'sepatu', '38', 255000, 'Sangat Baik', 'Sneakers putih dengan siluet bersih dan sol tipis. Cocok untuk gaya minimalis sehari-hari.', 'Adidas', 'Putih', 'Bagian sol sedikit kotor, sudah dibersihkan. Tanpa cacat pada upper.', 'terjual', 18, [['assets/images/products/sneaker-putih.jpg', 1]]],
+                [2, 'Cardigan Rajut Oatmeal', 1, 'atasan', 'Satu Ukuran', 155000, 'Sangat Baik', 'Cardigan rajut warna oatmeal dengan kancing kayu. Jatuh longgar dan nyaman untuk cuaca dingin.', 'Muji', 'Oatmeal', 'Tidak ada cacat. Rajutan rapi tanpa pilling.', 'terjual', 17, [['assets/images/products/rak-netral.jpg', 1]]],
+                [3, 'Sneakers Putih Minimalis', 5, 'sepatu', '38', 255000, 'Sangat Baik', 'Sneakers putih dengan siluet bersih dan sol tipis. Cocok untuk gaya minimalis sehari-hari.', 'Adidas', 'Putih', 'Bagian sol sedikit kotor, sudah dibersihkan. Tanpa cacat pada upper.', 'terjual', 18, [['assets/images/products/sneaker-putih.jpg', 1]]],
                 [4, 'Kemeja Putih Oversize', 1, 'atasan', 'M', 195000, 'Baik', 'Kemeja putih oversize dengan bahan katun yang ringan. Bisa dipakai sebagai outer maupun atasan utama.', 'Arket', 'Putih', 'Ada sedikit noda samar di bagian manset kanan.', 'terjual', 19, [['assets/images/products/flatlay-putih.jpg', 1]]],
             ];
 
@@ -92,8 +92,16 @@ class Seeder
             foreach ($products as $p) {
                 $sellerId = $userIds[$p[0] - 1];
                 $created = date('Y-m-d H:i:s', $now - ($p[12] * 86400) - random_int(0, 3600));
+                $baseSlug = slugify($p[1]);
+                $slug = $baseSlug;
+                $suffix = 2;
+                $slugStmt->execute([$slug]);
+                while ((int) $slugStmt->fetchColumn() > 0) {
+                    $slug = $baseSlug . '-' . $suffix++;
+                    $slugStmt->execute([$slug]);
+                }
                 $productStmt->execute([
-                    $sellerId, $p[1], $categoryIds[$p[2] - 1], $p[3], $p[4], $p[5], $p[6], $p[7], $p[8], $p[9], $p[10], $p[11],
+                    $sellerId, $p[1], $slug, $categoryIds[$p[2] - 1], $p[3], $p[4], $p[5], $p[6], $p[7], $p[8], $p[9], $p[10], $p[11],
                     random_int(38, 420), $created, $created,
                 ]);
                 $productId = (int) $db->lastInsertId();
@@ -240,14 +248,11 @@ class Seeder
             $settingsStmt = $db->prepare('INSERT INTO settings (key, value) VALUES (?, ?)');
             $settings = [
                 'site_name' => 're:wear',
-                'site_tagline' => 'Fashion deserves another life.',
+                'site_tagline' => 'Pakaian punya kehidupan kedua.',
                 'contact_email' => 'halo@rewear.id',
                 'contact_phone' => '0812 1000 2201',
                 'city' => 'Jakarta, Indonesia',
                 'instagram' => '@rewear.id',
-                'impact_items' => '1284',
-                'impact_sellers' => '326',
-                'impact_cities' => '38',
                 'moderation_note' => 'Setiap produk ditinjau secara berkala untuk menjaga kualitas kurasi.',
             ];
             foreach ($settings as $key => $value) {

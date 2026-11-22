@@ -11,7 +11,7 @@
         <div class="auth-panel__inner auth-panel__inner--wide">
             <span class="eyebrow">Bergabung dengan re:wear</span>
             <h1>Buat ruang untuk<br><em>cerita berikutnya.</em></h1>
-            <p class="auth-panel__lead">Satu akun untuk membeli dan menjual pakaian serta sepatu preloved.</p>
+            <p class="auth-panel__lead">Satu akun untuk membeli dan menjual pakaian serta sepatu bekas terawat.</p>
 
             <form action="<?= url('/daftar') ?>" method="post" class="form-stack auth-form">
                 <?= csrf_field() ?>
@@ -27,8 +27,8 @@
                 </div>
                 <div class="field-row">
                     <div class="field">
-                        <label for="register-email">Email</label>
-                        <input id="register-email" type="email" name="email" value="<?= old('email') ?>" autocomplete="email" placeholder="nama@email.com" required>
+                        <label for="register-email">Surel</label>
+                        <input id="register-email" type="email" name="email" value="<?= old('email') ?>" autocomplete="email" placeholder="nama@contoh.id" required>
                     </div>
                     <div class="field">
                         <label for="register-city">Kota</label>

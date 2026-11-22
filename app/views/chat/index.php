@@ -121,7 +121,7 @@ $conversationCount = count($conversations);
                     </div>
                     <span class="eyebrow">Ruang percakapan</span>
                     <h2>Pilih satu percakapan<br><em>untuk mulai.</em></h2>
-                    <p>Pertanyaan yang baik tentang ukuran, bahan, atau ongkir membuat transaksi preloved terasa lebih tenang.</p>
+                    <p>Pertanyaan yang baik tentang ukuran, bahan, atau ongkir membuat transaksi pakaian bekas terasa lebih tenang.</p>
                     <?php if ($conversations): ?>
                         <a href="<?= url('/chat/' . $conversations[0]['id']) ?>" class="button button--dark">Buka Pesan Terakhir <?= icon('arrow-right') ?></a>
                     <?php else: ?>

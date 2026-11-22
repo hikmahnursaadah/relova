@@ -8,8 +8,8 @@ if ($basePath === '.' || $basePath === '/') {
 
 return [
     'name' => 're:wear',
-    'tagline' => 'Fashion deserves another life.',
-    'description' => 'Marketplace fashion preloved pilihan untuk pakaian dan sepatu yang masih layak dipakai.',
+    'tagline' => 'Pakaian punya kehidupan kedua.',
+    'description' => 'Tempat jual beli pakaian dan sepatu bekas terawat yang masih layak dipakai.',
     'base_url' => getenv('APP_URL') ?: $basePath,
     'timezone' => 'Asia/Jakarta',
     'upload_dir' => dirname(__DIR__) . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'uploads',

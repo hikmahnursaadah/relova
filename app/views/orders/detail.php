@@ -44,7 +44,7 @@ $layoutSeller = (int) $order['seller_id'] === Auth::id() && (int) $order['buyer_
                         <?php endforeach; ?>
                     </ol>
                 <?php endif; ?>
-                <p class="order-timeline__note">Status diperbarui oleh penjual. Hubungi penjual melalui chat jika ada pertanyaan tentang pengiriman.</p>
+                <p class="order-timeline__note">Status diperbarui oleh penjual. Hubungi penjual melalui pesan jika ada pertanyaan tentang pengiriman.</p>
             </section>
 
             <section class="panel-card">
@@ -118,7 +118,7 @@ $layoutSeller = (int) $order['seller_id'] === Auth::id() && (int) $order['buyer_
                             <input type="hidden" name="product_id" value="<?= (int) $order['items'][0]['product_id'] ?>">
                         <?php endif; ?>
                         <input type="hidden" name="message" value="Halo, saya ingin menanyakan pesanan <?= e($order['order_number']) ?>.">
-                        <button type="submit" class="button button--ghost button--full"><?= icon('chat') ?> Chat Penjual</button>
+                        <button type="submit" class="button button--ghost button--full"><?= icon('chat') ?> Tanya Penjual</button>
                     </form>
                 <?php endif; ?>
                 <?php if ($canCancel): ?>

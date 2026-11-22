@@ -9,22 +9,29 @@ class HomeController extends Controller
         $settings = (new SettingModel())->all();
         $featured = $products->featured(8);
         $wishlistIds = Auth::check() ? (new WishlistModel())->ids(Auth::id()) : [];
+        $users = new UserModel();
 
         $this->render('home/index', [
-            'title' => 're:wear — Fashion Punya Kehidupan Kedua',
+            'title' => 're:wear — Pakaian Punya Kehidupan Kedua',
             'page' => 'home',
             'categories' => $categories,
             'featured' => $featured,
             'settings' => $settings,
             'wishlistIds' => $wishlistIds,
             'newest' => $products->newest(3),
+            'liveStats' => [
+                'products' => $products->total('aktif'),
+                'sellers' => $users->activeSellers(),
+                'cities' => $users->sellerCities(),
+            ],
         ], 'main');
     }
 
     public function about(): void
     {
         $settings = (new SettingModel())->all();
-        $sellers = (new UserModel())->all(['role' => 'penjual', 'status' => 'aktif'], 1, 3);
+        $users = new UserModel();
+        $sellers = $users->all(['role' => 'penjual', 'status' => 'aktif'], 1, 3);
         $reviews = (new ReviewModel())->forSeller(2, 3);
         $this->render('home/about', [
             'title' => 'Tentang Kami — re:wear',
@@ -32,6 +39,10 @@ class HomeController extends Controller
             'settings' => $settings,
             'sellers' => $sellers,
             'reviews' => $reviews,
+            'liveStats' => [
+                'sellers' => $users->activeSellers(),
+                'cities' => $users->sellerCities(),
+            ],
         ], 'main');
     }
 

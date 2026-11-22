@@ -1,0 +1,246 @@
+/* ==========================================================================
+   re:wear — grid kategori gaya, kartu editorial asimetris
+   ========================================================================== */
+
+.style-section {
+    background: var(--paper-light);
+}
+
+/* --------------------------------------------------------------------------
+   Grid — pola 12 kolom memberi ruang bagi kartu lebar dan tinggi
+   -------------------------------------------------------------------------- */
+
+.style-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-auto-rows: minmax(230px, auto);
+    gap: clamp(16px, 2vw, 28px);
+    align-items: stretch;
+}
+
+.style-card {
+    min-width: 0;
+    grid-column: span 4;
+}
+
+/* Pola: lebar — tinggi — sedang — sedang — lebar penuh */
+.style-card--wide {
+    grid-column: span 7;
+}
+
+.style-card--tall {
+    grid-column: span 5;
+    grid-row: span 2;
+}
+
+.style-card--medium {
+    grid-column: span 4;
+}
+
+.style-card--medium:nth-of-type(4) {
+    grid-column: span 3;
+}
+
+.style-card:last-child {
+    grid-column: span 12;
+}
+
+.style-card__link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-width: 0;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    transition: border-color 0.35s var(--ease), background 0.35s var(--ease), transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+
+.style-card__link:hover,
+.style-card__link:focus-visible {
+    border-color: var(--line-strong);
+    background: var(--white);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+}
+
+.style-card.is-visible .style-card__link,
+.style-card.is-inview .style-card__link {
+    border-color: var(--line-strong);
+}
+
+/* Media ------------------------------------------------------------------- */
+
+.style-card__media {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 190px;
+    overflow: hidden;
+    background: var(--paper-deep);
+}
+
+.style-card--wide .style-card__media {
+    min-height: 220px;
+}
+
+.style-card--tall .style-card__media {
+    min-height: 420px;
+}
+
+.style-card:last-child .style-card__media {
+    min-height: 260px;
+}
+
+.style-card__media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(29, 28, 24, 0.12), transparent 38%, rgba(29, 28, 24, 0.08));
+    pointer-events: none;
+    opacity: 0.75;
+    transition: opacity 0.4s var(--ease);
+}
+
+.style-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.75s var(--ease), filter 0.5s var(--ease);
+}
+
+.style-card__link:hover .style-card__media img,
+.style-card__link:focus-visible .style-card__media img {
+    transform: scale(1.07);
+    filter: saturate(1.05);
+}
+
+.style-card__link:hover .style-card__media::after {
+    opacity: 0.35;
+}
+
+/* Penanda angka, jumlah produk, dan status -------------------------------- */
+
+.style-card__index,
+.style-card__count,
+.style-card__badge {
+    position: absolute;
+    z-index: 2;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.style-card__index {
+    top: 16px;
+    left: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(248, 245, 238, 0.6);
+    border-radius: 50%;
+    background: rgba(29, 28, 24, 0.55);
+    color: var(--paper-light);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+}
+
+.style-card__count {
+    bottom: 16px;
+    left: 16px;
+    padding: 8px 11px;
+    background: rgba(248, 245, 238, 0.92);
+    color: var(--ink);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+}
+
+.style-card__badge {
+    top: 16px;
+    right: 16px;
+    padding: 8px 11px;
+    background: var(--accent);
+    color: var(--white);
+}
+
+/* Badan kartu ------------------------------------------------------------- */
+
+.style-card__body {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 18px;
+    padding: clamp(18px, 2vw, 26px);
+}
+
+.style-card__body > div {
+    min-width: 0;
+}
+
+.style-card__body h3 {
+    font-size: clamp(21px, 2.2vw, 30px);
+    line-height: 1;
+    transition: color 0.3s var(--ease);
+}
+
+.style-card__link:hover .style-card__body h3 {
+    color: var(--accent-deep);
+}
+
+.style-card__body p {
+    max-width: 46ch;
+    margin-top: 9px;
+    font-size: 12px;
+    line-height: 1.65;
+    color: var(--muted);
+}
+
+.style-card__arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    flex: 0 0 auto;
+    border: 1px solid var(--line-strong);
+    border-radius: 50%;
+    transition: background 0.3s var(--ease), color 0.3s var(--ease), border-color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+
+.style-card__arrow .icon {
+    width: 16px;
+    height: 16px;
+}
+
+.style-card__link:hover .style-card__arrow,
+.style-card__link:focus-visible .style-card__arrow {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--white);
+    transform: rotate(45deg);
+}
+
+/* Kategori yang belum aktif ---------------------------------------------- */
+
+.style-card--soon .style-card__media img {
+    filter: grayscale(0.55) saturate(0.7);
+}
+
+.style-card--soon .style-card__body h3 {
+    color: var(--muted);
+}
+
+.style-card--soon .style-card__link:hover .style-card__body h3 {
+    color: var(--ink);
+}
+
+.style-card--soon .style-card__arrow {
+    border-style: dashed;
+}
+
+.style-card--soon .style-card__link:hover .style-card__arrow {
+    border-style: solid;
+    transform: none;
+}

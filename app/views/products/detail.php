@@ -75,7 +75,7 @@ $reviewTotal = (int) ($reviewStats['total'] ?? 0);
                     <span class="defect-note__icon"><?= icon('info') ?></span>
                     <div>
                         <strong>Catatan kondisi</strong>
-                        <p><?= e($product['defect'] ?: 'Penjual belum menambahkan catatan cacat. Tanyakan detail melalui chat.') ?></p>
+                        <p><?= e($product['defect'] ?: 'Penjual belum menambahkan catatan cacat. Tanyakan detail melalui pesan.') ?></p>
                     </div>
                 </div>
 
@@ -87,7 +87,7 @@ $reviewTotal = (int) ($reviewStats['total'] ?? 0);
                             <p>Kelola foto, harga, atau hapus produk dari etalase.</p>
                         </div>
                         <div class="owner-panel__actions">
-                            <a href="<?= url('/penjual/produk/' . $product['id'] . '/edit') ?>" class="button button--dark">Edit Produk <?= icon('edit') ?></a>
+                            <a href="<?= url('/penjual/produk/' . $product['id'] . '/edit') ?>" class="button button--dark">Ubah Produk <?= icon('edit') ?></a>
                             <form action="<?= url('/penjual/produk/' . $product['id'] . '/hapus') ?>" method="post" data-confirm="Hapus produk ini dari etalase? Tindakan ini tidak dapat dibatalkan.">
                                 <?= csrf_field() ?>
                                 <button type="submit" class="button button--danger-outline">Hapus</button>
@@ -140,7 +140,7 @@ $reviewTotal = (int) ($reviewStats['total'] ?? 0);
 
                 <div class="transaction-note">
                     <span><?= icon('shield') ?></span>
-                    <p><strong>Transaksi langsung dengan penjual.</strong> Ongkos kirim dan metode pengiriman disepakati melalui chat. re:wear mencatat pesanan dan status transaksi tanpa memproses pembayaran otomatis.</p>
+                    <p><strong>Transaksi langsung dengan penjual.</strong> Ongkos kirim dan metode pengiriman disepakati melalui pesan. re:wear mencatat pesanan dan status transaksi tanpa memproses pembayaran otomatis.</p>
                 </div>
             </div>
         </div>
@@ -158,7 +158,7 @@ $reviewTotal = (int) ($reviewStats['total'] ?? 0);
                     <div><dt>Warna</dt><dd><?= e($product['color'] ?: 'Tidak disebutkan') ?></dd></div>
                     <div><dt>Ditayangkan</dt><dd><?= e(tanggal($product['created_at'])) ?></dd></div>
                 </dl>
-                <p class="product-specs__disclaimer">Barang preloved dapat memiliki tanda pemakaian halus yang tidak selalu tertangkap kamera. Tanyakan melalui chat bila perlu.</p>
+                <p class="product-specs__disclaimer">Barang bekas dapat memiliki tanda pemakaian halus yang tidak selalu tertangkap kamera. Tanyakan melalui pesan bila perlu.</p>
             </div>
 
             <aside class="seller-card">
@@ -170,7 +170,7 @@ $reviewTotal = (int) ($reviewStats['total'] ?? 0);
                         <span><?= e($product['seller_city'] ?: 'Indonesia') ?></span>
                     </div>
                 </div>
-                <p class="seller-card__bio"><?= e($seller['bio'] ?? 'Penjual preloved terkurasi di re:wear.') ?></p>
+                <p class="seller-card__bio"><?= e($seller['bio'] ?? 'Penjual pakaian bekas terkurasi di re:wear.') ?></p>
                 <div class="seller-card__stats">
                     <div><strong><?= (int) ($seller['active_products'] ?? 0) ?></strong><span>produk aktif</span></div>
                     <div><strong><?= (int) ($seller['completed_sales'] ?? 0) ?></strong><span>terjual</span></div>
@@ -187,7 +187,7 @@ $reviewTotal = (int) ($reviewStats['total'] ?? 0);
                         </div>
                     </form>
                 <?php elseif (!Auth::check()): ?>
-                    <a href="<?= url('/masuk?next=' . $loginNext) ?>" class="button button--ghost button--full"><?= icon('chat') ?> Masuk untuk Chat</a>
+                    <a href="<?= url('/masuk?next=' . $loginNext) ?>" class="button button--ghost button--full"><?= icon('chat') ?> Masuk untuk Bertanya</a>
                 <?php endif; ?>
                 <a href="<?= url('/jelajahi?penjual=' . $product['seller_id']) ?>" class="text-link">Lihat semua produk penjual <?= icon('arrow-up-right') ?></a>
                 <?php if ($seller && $seller['created_at']): ?>

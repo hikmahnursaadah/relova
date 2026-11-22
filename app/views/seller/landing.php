@@ -22,7 +22,7 @@
             </div>
             <div class="sell-hero__tag">
                 <span class="clothing-tag__icon"><?= icon('hanger') ?></span>
-                <span><strong>preloved</strong><small>siap cerita baru</small></span>
+                <span><strong>bekas terawat</strong><small>siap cerita baru</small></span>
                 <span class="sell-hero__tag-code">RW—04</span>
             </div>
             <div class="sell-hero__note">
@@ -81,7 +81,7 @@
         <div class="sell-editorial__copy">
             <span class="eyebrow" data-reveal>Standar kurasi</span>
             <h2 data-reveal>Barang yang layak,<br>bukan sekadar <em>lama.</em></h2>
-            <p data-reveal>re:wear hanya menerima pakaian dan sepatu preloved yang masih layak dipakai. Kami tidak menjual aksesori sebagai produk aktif untuk saat ini, dan setiap laporan pembeli akan ditinjau tim moderasi.</p>
+            <p data-reveal>re:wear hanya menerima pakaian dan sepatu bekas yang masih layak dipakai. Kami tidak menjual tas atau aksesori sebagai produk aktif, dan setiap laporan pembeli akan ditinjau tim moderasi.</p>
             <div class="sell-checks">
                 <div data-reveal><span><?= icon('check') ?></span><div><strong>Bersih dan siap pakai</strong><p>Cuci atau bersihkan sebelum difoto dan dikirim.</p></div></div>
                 <div data-reveal><span><?= icon('check') ?></span><div><strong>Tanpa kerusakan tersembunyi</strong><p>Catat noda, lubang, atau lecet sekecil apa pun.</p></div></div>
@@ -121,7 +121,7 @@
             </details>
             <details class="faq-item" data-reveal>
                 <summary>Bagaimana pembayaran dilakukan? <?= icon('plus') ?></summary>
-                <p>re:wear tidak memproses pembayaran otomatis. Kamu dan pembeli menyepakati metode pembayaran serta pengiriman melalui chat. Sistem hanya mencatat pesanan dan statusnya.</p>
+                <p>re:wear tidak memproses pembayaran otomatis. Kamu dan pembeli menyepakati metode pembayaran serta pengiriman melalui pesan. Sistem hanya mencatat pesanan dan statusnya.</p>
             </details>
             <details class="faq-item" data-reveal>
                 <summary>Apakah saya bisa membeli dan menjual dengan akun yang sama? <?= icon('plus') ?></summary>

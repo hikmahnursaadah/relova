@@ -3,7 +3,7 @@
         <span class="success-page__icon"><?= icon('check') ?></span>
         <span class="eyebrow">Pesanan tercatat</span>
         <h1>Cerita baru sedang<br><em>disiapkan.</em></h1>
-        <p>Pesananmu sudah diteruskan ke penjual. Pantau status dan lanjutkan komunikasi melalui chat sampai barang tiba di tanganmu.</p>
+        <p>Pesananmu sudah diteruskan ke penjual. Pantau status dan lanjutkan komunikasi melalui pesan sampai barang tiba di tanganmu.</p>
         <div class="success-page__orders">
             <?php foreach ($orderIds as $orderId): ?>
                 <?php $order = (new OrderModel())->find((int) $orderId); ?>

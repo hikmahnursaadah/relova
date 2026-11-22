@@ -17,7 +17,7 @@ $currentSort = $filters['sort'] ?: 'terbaru';
 <section class="catalog-head">
     <div class="container catalog-head__inner">
         <div>
-            <span class="eyebrow" data-reveal>Arsip preloved — <?= date('Y') ?></span>
+            <span class="eyebrow" data-reveal>Arsip pakaian bekas — <?= date('Y') ?></span>
             <h1 data-reveal><?= $seller ? 'Lemari ' . e($seller['name']) : 'Temukan <em>potongan</em><br>yang menunggumu.' ?></h1>
         </div>
         <div class="catalog-head__meta" data-reveal>
@@ -33,9 +33,9 @@ $currentSort = $filters['sort'] ?: 'terbaru';
             <div class="filter-panel__head">
                 <div>
                     <span class="eyebrow">Saring koleksi</span>
-                    <strong>Filter</strong>
+                    <strong>Penyaringan</strong>
                 </div>
-                <button type="button" class="icon-button filter-close" data-filter-close aria-label="Tutup filter"><?= icon('close') ?></button>
+                <button type="button" class="icon-button filter-close" data-filter-close aria-label="Tutup penyaringan"><?= icon('close') ?></button>
             </div>
             <form action="<?= url('/jelajahi') ?>" method="get" class="filter-form">
                 <input type="hidden" name="urutkan" value="<?= e($currentSort) ?>">
@@ -111,7 +111,7 @@ $currentSort = $filters['sort'] ?: 'terbaru';
                 </div>
 
                 <div class="filter-actions">
-                    <button type="submit" class="button button--dark button--full">Terapkan Filter</button>
+                    <button type="submit" class="button button--dark button--full">Terapkan</button>
                     <a href="<?= url('/jelajahi' . ($filters['seller_id'] ? '?penjual=' . (int) $filters['seller_id'] : '')) ?>" class="text-link text-link--center">Atur ulang</a>
                 </div>
             </form>
@@ -120,7 +120,7 @@ $currentSort = $filters['sort'] ?: 'terbaru';
 
         <div class="catalog-main">
             <div class="catalog-toolbar">
-                <button type="button" class="filter-trigger" data-filter-open><?= icon('filter') ?> Filter <?php if ($activeFilterCount): ?><span><?= $activeFilterCount ?></span><?php endif; ?></button>
+                <button type="button" class="filter-trigger" data-filter-open><?= icon('filter') ?> Saring <?php if ($activeFilterCount): ?><span><?= $activeFilterCount ?></span><?php endif; ?></button>
                 <p class="catalog-toolbar__count"><span><?= (int) $pagination['total'] ?></span> produk</p>
                 <div class="catalog-sort">
                     <label for="sort-select">Urutkan</label>
@@ -129,7 +129,7 @@ $currentSort = $filters['sort'] ?: 'terbaru';
                         <option value="termurah" <?= $currentSort === 'termurah' ? 'selected' : '' ?>>Harga terendah</option>
                         <option value="termahal" <?= $currentSort === 'termahal' ? 'selected' : '' ?>>Harga tertinggi</option>
                         <option value="populer" <?= $currentSort === 'populer' ? 'selected' : '' ?>>Paling dilihat</option>
-                        <option value="rating" <?= $currentSort === 'rating' ? 'selected' : '' ?>>Rating tertinggi</option>
+                        <option value="rating" <?= $currentSort === 'rating' ? 'selected' : '' ?>>Penilaian tertinggi</option>
                     </select>
                 </div>
             </div>

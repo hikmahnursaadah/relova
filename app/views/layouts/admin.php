@@ -9,7 +9,7 @@ View::partial('components/flash');
     <aside class="admin-sidebar" data-sidebar>
         <div class="admin-sidebar__head">
             <a class="brand brand--admin" href="<?= url('/admin') ?>"><span class="brand__word">re<span class="brand__colon">:</span>wear</span></a>
-            <span class="admin-badge">Admin</span>
+            <span class="admin-badge">Administrator</span>
             <button class="icon-button admin-sidebar__close" data-sidebar-close aria-label="Tutup menu"><?= icon('close') ?></button>
         </div>
         <nav class="admin-nav" aria-label="Navigasi administrator">

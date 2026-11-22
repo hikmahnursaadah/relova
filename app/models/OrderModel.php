@@ -4,52 +4,101 @@ class OrderModel extends Model
 {
     public function create(int $buyerId, int $sellerId, array $items, int $shippingCost, string $address, string $notes = ''): int
     {
+        $orderIds = $this->createBatchForBuyer($buyerId, [
+            $sellerId => [
+                'seller_id' => $sellerId,
+                'items' => $items,
+            ],
+        ], [$sellerId => $shippingCost], $address, $notes);
+        return (int) $orderIds[0];
+    }
+
+    public function createBatchForBuyer(int $buyerId, array $groups, array $shippingCosts, string $address, string $notes = ''): array
+    {
+        if (!$groups) {
+            throw new InvalidArgumentException('Tidak ada produk untuk dipesan.');
+        }
+
+        $productIds = [];
+        foreach ($groups as $group) {
+            foreach ($group['items'] ?? [] as $item) {
+                $productIds[] = (int) $item['product_id'];
+            }
+        }
+
         $this->db->beginTransaction();
         try {
-            $subtotal = 0;
-            foreach ($items as $item) {
-                $subtotal += (int) $item['price'];
+            $reserved = $this->reservedProductIds($productIds);
+            if ($reserved) {
+                throw new RuntimeException('Sebagian produk sudah dipesan pembeli lain dan tidak dapat dipesan kembali.');
             }
-            $total = $subtotal + $shippingCost;
-            $orderNumber = $this->generateOrderNumber();
 
-            $stmt = $this->db->prepare(
-                'INSERT INTO orders (order_number, buyer_id, seller_id, total_amount, shipping_cost, status, shipping_address, notes)
-                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)'
-            );
-            $stmt->execute([
-                $orderNumber,
-                $buyerId,
-                $sellerId,
-                $total,
-                $shippingCost,
-                'menunggu',
-                $address,
-                $notes ?: null,
-            ]);
-            $orderId = (int) $this->db->lastInsertId();
+            $orderIds = [];
+            foreach ($groups as $sellerId => $group) {
+                $sellerId = (int) $sellerId;
+                $items = $group['items'] ?? [];
+                $subtotal = 0;
+                foreach ($items as $item) {
+                    $subtotal += (int) $item['price'];
+                }
+                $shippingCost = (int) ($shippingCosts[$sellerId] ?? 0);
+                $total = $subtotal + $shippingCost;
+                $orderNumber = $this->generateOrderNumber();
 
-            $itemStmt = $this->db->prepare(
-                'INSERT INTO order_items (order_id, product_id, product_title, product_image, price) VALUES (?, ?, ?, ?, ?)'
-            );
-            $productStmt = $this->db->prepare("UPDATE products SET status = 'terjual', updated_at = CURRENT_TIMESTAMP WHERE id = ?");
-            foreach ($items as $item) {
-                $itemStmt->execute([
-                    $orderId,
-                    $item['product_id'],
-                    $item['title'],
-                    $item['image'] ?? null,
-                    $item['price'],
+                $stmt = $this->db->prepare(
+                    'INSERT INTO orders (order_number, buyer_id, seller_id, total_amount, shipping_cost, status, shipping_address, notes)
+                     VALUES (?, ?, ?, ?, ?, ?, ?, ?)'
+                );
+                $stmt->execute([
+                    $orderNumber,
+                    $buyerId,
+                    $sellerId,
+                    $total,
+                    $shippingCost,
+                    'menunggu',
+                    $address,
+                    $notes ?: null,
                 ]);
-                $productStmt->execute([$item['product_id']]);
+                $orderId = (int) $this->db->lastInsertId();
+                $orderIds[] = $orderId;
+
+                $itemStmt = $this->db->prepare(
+                    'INSERT INTO order_items (order_id, product_id, product_title, product_image, price) VALUES (?, ?, ?, ?, ?)'
+                );
+                foreach ($items as $item) {
+                    $itemStmt->execute([
+                        $orderId,
+                        $item['product_id'],
+                        $item['title'],
+                        $item['image'] ?? null,
+                        $item['price'],
+                    ]);
+                }
             }
 
             $this->db->commit();
-            return $orderId;
+            return $orderIds;
         } catch (Throwable $e) {
             $this->db->rollBack();
             throw $e;
         }
+    }
+
+    public function reservedProductIds(array $ids): array
+    {
+        $ids = array_values(array_unique(array_filter(array_map('intval', $ids), fn ($id) => $id > 0)));
+        if (!$ids) {
+            return [];
+        }
+        $placeholders = implode(',', array_fill(0, count($ids), '?'));
+        $stmt = $this->db->prepare(
+            "SELECT DISTINCT oi.product_id
+             FROM order_items oi
+             JOIN orders o ON o.id = oi.order_id
+             WHERE o.status <> 'dibatalkan' AND oi.product_id IN ({$placeholders})"
+        );
+        $stmt->execute($ids);
+        return array_values(array_unique(array_map('intval', $stmt->fetchAll(PDO::FETCH_COLUMN))));
     }
 
     private function generateOrderNumber(): string
@@ -171,6 +220,16 @@ class OrderModel extends Model
         }
         $stmt = $this->db->prepare('UPDATE orders SET status = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?');
         $stmt->execute([$status, $id]);
+
+        if (in_array($status, ['dikonfirmasi', 'diproses', 'dikirim', 'selesai'], true)) {
+            $items = $this->items($id);
+            $productStmt = $this->db->prepare("UPDATE products SET status = 'terjual', updated_at = CURRENT_TIMESTAMP WHERE id = ?");
+            foreach ($items as $item) {
+                if ($item['product_id']) {
+                    $productStmt->execute([$item['product_id']]);
+                }
+            }
+        }
 
         if ($status === 'dibatalkan') {
             $items = $this->items($id);

@@ -107,7 +107,7 @@ class SellerController extends Controller
             $this->redirect('/penjual/produk');
         }
         $this->render('seller/form', [
-            'title' => 'Edit Produk — re:wear',
+            'title' => 'Ubah Produk — re:wear',
             'page' => 'seller-product-form',
             'product' => $product,
             'images' => $productModel->images((int) $product['id']),
@@ -272,7 +272,7 @@ class SellerController extends Controller
             $errors[] = 'Nama produk harus 5–100 karakter.';
         }
         $category = (new CategoryModel())->find($data['category_id']);
-        if (!$category || !(int) $category['is_active'] || $category['slug'] === 'aksesori') {
+        if (!$category || !(int) $category['is_active']) {
             $errors[] = 'Pilih kategori produk yang tersedia.';
         } elseif ($data['type'] !== $category['type']) {
             $errors[] = 'Jenis barang harus sesuai dengan kategori yang dipilih.';

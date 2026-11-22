@@ -11,6 +11,14 @@ class ReportModel extends Model
         return (int) $this->db->lastInsertId();
     }
 
+    public function find(int $id): ?array
+    {
+        $stmt = $this->db->prepare('SELECT * FROM reports WHERE id = ?');
+        $stmt->execute([$id]);
+        $report = $stmt->fetch();
+        return $report ?: null;
+    }
+
     public function recent(int $limit = 5): array
     {
         $stmt = $this->db->prepare(

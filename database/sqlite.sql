@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS products (
     category_id INTEGER NOT NULL,
     title TEXT NOT NULL,
     slug TEXT NOT NULL UNIQUE,
-    type TEXT NOT NULL CHECK (type IN ('atasan', 'bawahan', 'outerwear', 'sepatu')),
+    type TEXT NOT NULL CHECK (type IN ('atasan', 'bawahan', 'outerwear', 'dress', 'sepatu')),
     size TEXT NOT NULL,
     price INTEGER NOT NULL CHECK (price >= 0),
     item_condition TEXT NOT NULL CHECK (item_condition IN ('Sangat Baik', 'Baik', 'Cukup Baik')),

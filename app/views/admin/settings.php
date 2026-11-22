@@ -1,5 +1,5 @@
 <?php
-$typeOptions = ['atasan' => 'Atasan', 'bawahan' => 'Bawahan', 'outerwear' => 'Outerwear', 'sepatu' => 'Sepatu', 'aksesori' => 'Aksesori'];
+$typeOptions = ['atasan' => 'Atasan', 'bawahan' => 'Bawahan', 'outerwear' => 'Outerwear', 'dress' => 'Dress', 'sepatu' => 'Sepatu'];
 $reportStatus = ['' => 'Semua status', 'baru' => 'Baru', 'diproses' => 'Diproses', 'selesai' => 'Selesai'];
 ?>
 <section class="admin-page admin-settings-page">
@@ -35,7 +35,7 @@ $reportStatus = ['' => 'Semua status', 'baru' => 'Baru', 'diproses' => 'Diproses
             </div>
             <div class="field-row">
                 <div class="field">
-                    <label for="setting-contact-email">Email kontak</label>
+                    <label for="setting-contact-email">Surel kontak</label>
                     <input id="setting-contact-email" type="email" name="contact_email" value="<?= e($settings['contact_email'] ?? '') ?>">
                 </div>
                 <div class="field">
@@ -53,20 +53,6 @@ $reportStatus = ['' => 'Semua status', 'baru' => 'Baru', 'diproses' => 'Diproses
                     <input id="setting-instagram" type="text" name="instagram" value="<?= e($settings['instagram'] ?? '') ?>">
                 </div>
             </div>
-            <div class="field-row field-row--three">
-                <div class="field">
-                    <label for="setting-impact-items">Barang terselamatkan</label>
-                    <input id="setting-impact-items" type="number" name="impact_items" value="<?= e($settings['impact_items'] ?? '0') ?>" min="0">
-                </div>
-                <div class="field">
-                    <label for="setting-impact-sellers">Penjual aktif</label>
-                    <input id="setting-impact-sellers" type="number" name="impact_sellers" value="<?= e($settings['impact_sellers'] ?? '0') ?>" min="0">
-                </div>
-                <div class="field">
-                    <label for="setting-impact-cities">Kota terhubung</label>
-                    <input id="setting-impact-cities" type="number" name="impact_cities" value="<?= e($settings['impact_cities'] ?? '0') ?>" min="0">
-                </div>
-            </div>
             <div class="field">
                 <label for="setting-moderation-note">Catatan moderasi</label>
                 <textarea id="setting-moderation-note" name="moderation_note" rows="3"><?= e($settings['moderation_note'] ?? '') ?></textarea>
@@ -81,7 +67,7 @@ $reportStatus = ['' => 'Semua status', 'baru' => 'Baru', 'diproses' => 'Diproses
             <div><span class="eyebrow">Struktur katalog</span><h2>Kategori produk</h2></div>
             <span class="admin-panel__badge"><?= count($categories) ?> kategori</span>
         </div>
-        <p class="admin-settings-note">Kategori aksesori tetap nonaktif karena re:wear hanya menjual pakaian dan sepatu preloved. Kamu dapat mengaktifkannya kembali jika layanan aksesori dibuka.</p>
+        <p class="admin-settings-note">Katalog hanya menerima pakaian dan sepatu bekas terawat: Atasan, Bawahan, Outerwear, Dress, dan Sepatu. Kategori di luar daftar tersebut tidak ditampilkan di etalase.</p>
         <div class="admin-category-list">
             <?php foreach ($categories as $category): ?>
                 <details class="admin-category">

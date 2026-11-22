@@ -1,7 +1,7 @@
 <?php
 $page = $page ?? '';
 $pageTitle = $title ?? 're:wear';
-$description = $description ?? 'Marketplace fashion preloved untuk pakaian dan sepatu berkualitas yang masih layak dipakai.';
+$description = $description ?? 'Tempat jual beli pakaian dan sepatu bekas terawat yang masih layak dipakai.';
 $bodyClass = trim('site-body ' . body_page($page) . (Auth::check() ? ' is-authenticated' : ' is-guest'));
 ?>
 <!DOCTYPE html>

@@ -66,7 +66,7 @@ $reviewTotal = (int) ($reviewStats['total'] ?? 0);
                     </div>
                     <div class="field-row">
                         <div class="field">
-                            <label for="profile-email">Email</label>
+                            <label for="profile-email">Surel</label>
                             <input id="profile-email" type="email" name="email" value="<?= old('email', $user['email']) ?>" required>
                         </div>
                         <div class="field">
@@ -161,7 +161,7 @@ $reviewTotal = (int) ($reviewStats['total'] ?? 0);
                 <div class="profile-summary__row"><span>Peran</span><strong><?= e(role_label($user['role'])) ?></strong></div>
                 <div class="profile-summary__row"><span>Bergabung</span><strong><?= e(tanggal($user['created_at'])) ?></strong></div>
                 <div class="profile-summary__row"><span>Kota</span><strong><?= e($user['city'] ?: 'Belum diisi') ?></strong></div>
-                <div class="profile-summary__row"><span>Email</span><strong class="profile-summary__email"><?= e($user['email']) ?></strong></div>
+                <div class="profile-summary__row"><span>Surel</span><strong class="profile-summary__email"><?= e($user['email']) ?></strong></div>
             </section>
 
             <section class="panel-card" id="akun">
@@ -180,8 +180,8 @@ $reviewTotal = (int) ($reviewStats['total'] ?? 0);
             <section class="panel-card panel-card--accent profile-help">
                 <span class="eyebrow">Butuh bantuan?</span>
                 <h2>Kami membaca setiap pesan.</h2>
-                <p>Jika ada masalah dengan pesanan atau akun, hubungi tim re:wear melalui email.</p>
-                <a href="mailto:<?= e((new SettingModel())->get('contact_email', 'halo@rewear.id')) ?>" class="text-link">Kirim email <?= icon('arrow-up-right') ?></a>
+                <p>Jika ada masalah dengan pesanan atau akun, hubungi tim re:wear melalui surel.</p>
+                <a href="mailto:<?= e((new SettingModel())->get('contact_email', 'halo@rewear.id')) ?>" class="text-link">Kirim surel <?= icon('arrow-up-right') ?></a>
             </section>
 
             <form action="<?= url('/keluar') ?>" method="post" class="profile-logout">

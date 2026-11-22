@@ -12,14 +12,14 @@ $studioOutfits = [
         <span class="eyebrow" data-reveal>Studio 3D — re:wear</span>
         <div class="studio-hero__title-row">
             <h1 data-reveal>Coba dulu.<br><em>Kenali jatuhnya.</em></h1>
-            <p data-reveal>Manekin digital kami memperlihatkan bagaimana sebuah potongan bergerak dan jatuh di tubuh. Gerakkan kursor untuk memutar, lalu pilih gaya untuk melihat outfit lain.</p>
+            <p data-reveal>Manekin digital kami memperlihatkan bagaimana sebuah potongan bergerak dan jatuh di tubuh. Gerakkan kursor untuk memutar, lalu pilih gaya untuk melihat tampilan lain.</p>
         </div>
     </div>
 
     <div class="studio-stage-wrap">
         <div class="studio-stage">
             <div class="studio-stage__meta">
-                <span>LIVE MANNEQUIN</span>
+                <span>MANEKIN 3D LANGSUNG</span>
                 <span class="studio-stage__status"><i></i> Interaktif</span>
             </div>
             <div class="mannequin-canvas mannequin-canvas--studio" data-mannequin data-mode="studio" aria-label="Manekin 3D interaktif"></div>
@@ -46,7 +46,7 @@ $studioOutfits = [
 
         <aside class="studio-panel">
             <div class="studio-panel__head">
-                <span class="eyebrow">Pilih outfit</span>
+                <span class="eyebrow">Pilih gaya</span>
                 <span class="studio-panel__count">05 gaya</span>
             </div>
             <div class="studio-outfit-list">
@@ -63,7 +63,7 @@ $studioOutfits = [
             </div>
             <div class="studio-panel__controls">
                 <button type="button" class="text-link" data-studio-autoplay><?= icon('pause') ?><span>Hentikan otomatis</span></button>
-                <span class="studio-panel__tip"><?= icon('sparkle') ?> Transisi outfit berlangsung otomatis setiap beberapa detik.</span>
+                <span class="studio-panel__tip"><?= icon('sparkle') ?> Pergantian gaya berlangsung otomatis setiap beberapa detik.</span>
             </div>
         </aside>
     </div>
@@ -77,7 +77,7 @@ $studioOutfits = [
         <div class="studio-note">
             <span class="eyebrow">02 / Detail</span>
             <h3>Pakaian yang jatuh alami.</h3>
-            <p>Setiap outfit dibuat mengikuti proporsi manekin, dari potongan atasan sampai sepatu.</p>
+            <p>Setiap gaya dibuat mengikuti proporsi manekin, dari potongan atasan sampai sepatu.</p>
         </div>
         <div class="studio-note">
             <span class="eyebrow">03 / Performa</span>

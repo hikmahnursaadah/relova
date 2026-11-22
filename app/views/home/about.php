@@ -1,14 +1,17 @@
-<?php $featuredSellers = $sellers; ?>
+<?php
+$featuredSellers = $sellers;
+$liveStats = $liveStats ?? ['sellers' => 0, 'cities' => 0];
+?>
 <section class="about-hero section">
     <div class="container about-hero__grid">
         <div class="about-hero__copy">
             <span class="eyebrow" data-reveal>Tentang re:wear</span>
-            <h1 data-reveal>Fashion yang <em>bertahan,</em><br>bukan yang berhenti.</h1>
+            <h1 data-reveal>Pakaian yang <em>bertahan,</em><br>bukan yang berhenti.</h1>
             <p class="about-hero__lead" data-reveal>re:wear lahir dari keyakinan sederhana: pakaian bagus tidak seharusnya berakhir di lemari. Kami menghubungkan orang yang siap melepas dengan orang yang siap memberi cerita baru.</p>
             <div class="about-hero__meta" data-reveal>
                 <div><strong>2026</strong><span>mulai dikurasi</span></div>
-                <div><strong><?= e($settings['impact_sellers'] ?? '326') ?></strong><span>penjual terhubung</span></div>
-                <div><strong><?= e($settings['impact_cities'] ?? '38') ?></strong><span>kota terjangkau</span></div>
+                <div><strong><?= number_format((int) ($liveStats['sellers'] ?? 0), 0, ',', '.') ?></strong><span>penjual terhubung</span></div>
+                <div><strong><?= number_format((int) ($liveStats['cities'] ?? 0), 0, ',', '.') ?></strong><span>kota terjangkau</span></div>
             </div>
         </div>
         <div class="about-hero__media" data-reveal>
@@ -50,13 +53,13 @@
                 <span class="value-card__number">02</span>
                 <span class="value-card__icon"><?= icon('recycle') ?></span>
                 <h3>Memperpanjang pemakaian</h3>
-                <p>Membeli preloved berarti mengurangi limbah fashion dan memberi pakaian kesempatan untuk terus dipakai.</p>
+                <p>Membeli pakaian bekas berarti mengurangi limbah tekstil dan memberi pakaian kesempatan untuk terus dipakai.</p>
             </article>
             <article class="value-card" data-reveal>
                 <span class="value-card__number">03</span>
                 <span class="value-card__icon"><?= icon('chat') ?></span>
                 <h3>Manusia yang terhubung</h3>
-                <p>Pembeli dan penjual berbicara langsung melalui chat. Harga, ongkir, dan detail pengiriman disepakati bersama.</p>
+                <p>Pembeli dan penjual berbicara langsung melalui pesan. Harga, ongkir, dan rincian pengiriman disepakati bersama.</p>
             </article>
         </div>
     </div>
@@ -88,7 +91,7 @@
                 <span class="eyebrow" data-reveal>Orang di balik barang</span>
                 <h2 data-reveal>Penjual yang <em>merawat cerita.</em></h2>
             </div>
-            <p class="section-heading__copy" data-reveal>Mereka adalah pembeli, penjual, dan penikmat fashion yang sama. Kenali beberapa suara dari komunitas re:wear.</p>
+            <p class="section-heading__copy" data-reveal>Mereka adalah pembeli, penjual, dan penikmat mode yang sama. Kenali beberapa suara dari komunitas re:wear.</p>
         </header>
         <div class="seller-profile-grid">
             <?php foreach ($featuredSellers as $seller): ?>
@@ -98,7 +101,7 @@
                         <h3><?= e($seller['name']) ?></h3>
                         <span><?= e($seller['city'] ?: 'Indonesia') ?> · <?= (int) ($seller['product_count'] ?? 0) ?> produk</span>
                     </div>
-                    <p>“<?= e($seller['bio'] ?: 'Menjual pilihan pakaian preloved yang masih layak dipakai.') ?>”</p>
+                    <p>“<?= e($seller['bio'] ?: 'Menjual pilihan pakaian bekas terawat yang masih layak dipakai.') ?>”</p>
                     <a href="<?= url('/jelajahi?penjual=' . $seller['id']) ?>" class="text-link">Lihat lemari <?= icon('arrow-up-right') ?></a>
                 </article>
             <?php endforeach; ?>

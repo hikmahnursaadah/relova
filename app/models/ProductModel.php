@@ -393,10 +393,7 @@ class ProductModel extends Model
 
     private function uniqueSlug(string $title): string
     {
-        $base = strtolower(trim(preg_replace('/[^a-zA-Z0-9]+/', '-', $title), '-'));
-        if ($base === '') {
-            $base = 'produk';
-        }
+        $base = slugify($title);
         $slug = $base;
         $i = 2;
         while (true) {

@@ -111,7 +111,7 @@ $allowed = $transitions[$order['status']] ?? [];
                         <input type="hidden" name="product_id" value="<?= (int) $order['items'][0]['product_id'] ?>">
                     <?php endif; ?>
                     <input type="hidden" name="message" value="Halo, saya ingin membahas pesanan <?= e($order['order_number']) ?>.">
-                    <button type="submit" class="button button--ghost button--full"><?= icon('chat') ?> Chat Pembeli</button>
+                    <button type="submit" class="button button--ghost button--full"><?= icon('chat') ?> Tanya Pembeli</button>
                 </form>
             </section>
 
@@ -127,7 +127,7 @@ $allowed = $transitions[$order['status']] ?? [];
                     <?php if ($order['buyer_phone']): ?><a href="tel:<?= e(preg_replace('/\s+/', '', $order['buyer_phone'])) ?>"><?= icon('phone') ?> <?= e($order['buyer_phone']) ?></a><?php endif; ?>
                     <a href="mailto:<?= e($order['buyer_email']) ?>"><?= icon('mail') ?> <?= e($order['buyer_email']) ?></a>
                 </div>
-                <p class="aside-note"><?= icon('info') ?> Hubungi pembeli melalui chat jika ada perubahan alamat atau ongkir.</p>
+                <p class="aside-note"><?= icon('info') ?> Hubungi pembeli melalui pesan jika ada perubahan alamat atau ongkir.</p>
             </section>
 
             <section class="panel-card panel-card--accent">

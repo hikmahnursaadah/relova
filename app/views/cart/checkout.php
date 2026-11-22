@@ -34,7 +34,7 @@ $defaultAddress = old('shipping_address', $user['address'] ?: '');
             <section class="checkout-block">
                 <div class="checkout-block__head">
                     <span class="checkout-step">02</span>
-                    <div><h2>Ongkos kirim & pengiriman</h2><p>re:wear tidak mengintegrasikan layanan pengiriman otomatis. Sepakati ongkir dengan penjual melalui chat, lalu masukkan jumlahnya di bawah.</p></div>
+                    <div><h2>Ongkos kirim & pengiriman</h2><p>re:wear tidak mengintegrasikan layanan pengiriman otomatis. Sepakati ongkir dengan penjual melalui pesan, lalu masukkan jumlahnya di bawah.</p></div>
                 </div>
                 <?php foreach ($groups as $sellerId => $group): ?>
                     <div class="shipping-group">
@@ -59,7 +59,7 @@ $defaultAddress = old('shipping_address', $user['address'] ?: '');
                         </div>
                     </div>
                 <?php endforeach; ?>
-                <p class="checkout-hint"><?= icon('chat') ?> Belum sepakat ongkir? <a href="<?= url('/chat') ?>">Buka chat</a> dan tanyakan langsung kepada penjual sebelum mengirim pesanan.</p>
+                <p class="checkout-hint"><?= icon('chat') ?> Belum sepakat ongkir? <a href="<?= url('/chat') ?>">Buka pesan</a> dan tanyakan langsung kepada penjual sebelum mengirim pesanan.</p>
             </section>
 
             <section class="checkout-block">

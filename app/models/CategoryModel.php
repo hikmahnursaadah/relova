@@ -17,7 +17,7 @@ class CategoryModel extends Model
         return $this->db->query(
             "SELECT c.*,
                 (SELECT COUNT(*) FROM products p WHERE p.category_id = c.id AND p.status = 'aktif') AS product_count
-             FROM categories c WHERE c.is_active = 1 AND c.slug != 'aksesori'
+             FROM categories c WHERE c.is_active = 1
              ORDER BY c.sort_order ASC"
         )->fetchAll();
     }

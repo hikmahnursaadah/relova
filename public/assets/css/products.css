@@ -1,0 +1,674 @@
+/* ==========================================================================
+   re:wear — kartu produk, grid, katalog, filter, dan paginasi
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Grid produk
+   -------------------------------------------------------------------------- */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(18px, 2vw, 30px);
+}
+
+.product-grid--featured,
+.product-grid--four {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.product-grid--three {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.product-grid--catalog {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(16px, 1.7vw, 26px);
+}
+
+/* --------------------------------------------------------------------------
+   Kartu produk
+   -------------------------------------------------------------------------- */
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background: var(--paper-light);
+    border: 1px solid var(--line);
+    transition: transform 0.4s var(--ease), border-color 0.35s var(--ease), box-shadow 0.4s var(--ease);
+}
+
+.product-card:hover,
+.product-card.is-hovered,
+.product-card:focus-within,
+.product-card.is-focused {
+    transform: translateY(-4px);
+    border-color: var(--line-strong);
+    box-shadow: var(--shadow-card);
+}
+
+.product-card__media {
+    position: relative;
+    overflow: hidden;
+    background: var(--paper-deep);
+    aspect-ratio: 3 / 4;
+}
+
+.product-card__image-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.product-card__image-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.75s var(--ease), filter 0.5s var(--ease);
+}
+
+.product-card:hover .product-card__image-link img,
+.product-card.is-hovered .product-card__image-link img,
+.product-card:focus-within .product-card__image-link img,
+.product-card.is-focused .product-card__image-link img {
+    transform: scale(1.06);
+}
+
+/* Badge kondisi & terjual */
+.product-card__badges {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    pointer-events: none;
+}
+
+.product-card__badges .pill {
+    background: rgba(248, 245, 238, 0.94);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+}
+
+/* Tombol favorit & keranjang */
+.product-card__wishlist,
+.product-card__cart {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 3;
+    display: flex;
+    margin: 0;
+}
+
+.product-card__cart {
+    top: 58px;
+}
+
+.product-card__wishlist .round-button,
+.product-card__cart .round-button {
+    width: 36px;
+    height: 36px;
+    background: rgba(248, 245, 238, 0.94);
+    border-color: rgba(29, 28, 24, 0.14);
+}
+
+.product-card__wishlist .round-button:hover,
+.product-card__cart .round-button:hover {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+}
+
+.product-card__cart .round-button--dark {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+}
+
+.product-card__cart .round-button--dark:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.product-card.is-wishlisted .product-card__wishlist .round-button,
+.product-card__wishlist .round-button.is-active,
+.product-card__wishlist .round-button[aria-pressed="true"] {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--white);
+}
+
+@media (hover: hover) {
+    .product-card__wishlist,
+    .product-card__cart {
+        opacity: 0;
+        transform: translateX(8px);
+        transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+    }
+
+    .product-card:hover .product-card__wishlist,
+    .product-card:hover .product-card__cart,
+    .product-card.is-hovered .product-card__wishlist,
+    .product-card.is-hovered .product-card__cart,
+    .product-card:focus-within .product-card__wishlist,
+    .product-card:focus-within .product-card__cart,
+    .product-card.is-focused .product-card__wishlist,
+    .product-card.is-focused .product-card__cart {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Badan kartu */
+.product-card__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    gap: 10px;
+    padding: clamp(14px, 1.3vw, 19px);
+}
+
+.product-card__seller {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    min-width: 0;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--muted);
+}
+
+.product-card__seller > span:not(.avatar):not(.dot-separator) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.product-card__seller .avatar--xs {
+    width: 20px;
+    height: 20px;
+    font-size: 7px;
+}
+
+.product-card__title {
+    font-size: clamp(18px, 1.5vw, 22px);
+    line-height: 1.1;
+}
+
+.product-card__title a {
+    transition: color 0.25s ease;
+}
+
+.product-card__title a:hover {
+    color: var(--accent-deep);
+}
+
+.product-card__meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.11em;
+    line-height: 1.4;
+    text-transform: uppercase;
+    color: var(--muted-light);
+}
+
+.product-card__meta span + span::before {
+    content: "·";
+    margin-right: 8px;
+    color: var(--accent);
+}
+
+.product-card__foot {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+}
+
+.product-card__price {
+    font-family: var(--serif);
+    font-size: clamp(18px, 1.6vw, 23px);
+    font-weight: 400;
+    line-height: 1;
+}
+
+.product-card__rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+    color: var(--gold);
+}
+
+.product-card__rating .icon {
+    width: 12px;
+    height: 12px;
+    fill: currentColor;
+}
+
+.product-card__rating--muted {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted-light);
+}
+
+/* Produk terjual */
+.product-card.is-sold {
+    background: var(--paper);
+}
+
+.product-card.is-sold .product-card__media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(135deg, rgba(248, 245, 238, 0.32), rgba(29, 28, 24, 0.12));
+    pointer-events: none;
+}
+
+.product-card.is-sold .product-card__image-link img {
+    filter: grayscale(0.7);
+    opacity: 0.85;
+}
+
+.product-card.is-sold .product-card__price {
+    color: var(--muted);
+}
+
+/* Kartu ringkas untuk jurnal */
+.product-card--compact .product-card__body {
+    padding: 13px;
+    gap: 8px;
+}
+
+.product-card--compact .product-card__seller {
+    font-size: 9px;
+}
+
+.product-card--compact .product-card__title {
+    font-size: 17px;
+}
+
+.product-card--compact .product-card__badges {
+    top: 9px;
+    left: 9px;
+}
+
+.product-card--compact .product-card__badges .pill {
+    min-height: 22px;
+    padding: 0 8px;
+    font-size: 9px;
+}
+
+/* --------------------------------------------------------------------------
+   Kepala katalog
+   -------------------------------------------------------------------------- */
+
+.catalog-head {
+    padding: calc(var(--header-height) + clamp(36px, 5vw, 76px)) 0 clamp(34px, 4vw, 58px);
+    border-bottom: 1px solid var(--line);
+    background: linear-gradient(125deg, var(--paper) 0%, var(--paper-warm) 100%);
+}
+
+.catalog-head__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+    align-items: end;
+    gap: clamp(28px, 5vw, 80px);
+}
+
+.catalog-head h1 {
+    margin-top: 18px;
+    font-size: clamp(2.8rem, 5.2vw, 5.6rem);
+}
+
+.catalog-head__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 8px;
+}
+
+.catalog-head__meta > span {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--accent-deep);
+}
+
+.catalog-head__meta p {
+    font-size: 13px;
+    line-height: 1.75;
+    color: var(--muted);
+}
+
+.catalog-section {
+    padding: clamp(40px, 5vw, 76px) 0 clamp(80px, 9vw, 140px);
+}
+
+.catalog-layout {
+    display: grid;
+    grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
+    align-items: start;
+    gap: clamp(28px, 3.4vw, 56px);
+}
+
+/* --------------------------------------------------------------------------
+   Panel filter
+   -------------------------------------------------------------------------- */
+
+.filter-panel {
+    position: sticky;
+    top: calc(var(--header-height) + 16px);
+    max-height: calc(100svh - var(--header-height) - 32px);
+    overflow-y: auto;
+    padding: clamp(20px, 2vw, 26px);
+    border: 1px solid var(--line-strong);
+    background: var(--paper-light);
+    scrollbar-width: thin;
+}
+
+.filter-panel__head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line-strong);
+}
+
+.filter-panel__head > div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-panel__head strong {
+    font-family: var(--serif);
+    font-size: 29px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.filter-close {
+    display: none;
+}
+
+.filter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 22px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.filter-group legend {
+    padding: 0;
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon .icon {
+    position: absolute;
+    top: 50%;
+    left: 13px;
+    width: 16px;
+    height: 16px;
+    color: var(--muted-light);
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.filter-form .input-with-icon input {
+    padding-left: 40px;
+}
+
+.filter-form .check-row {
+    gap: 9px;
+    padding: 5px 0;
+    font-size: 12px;
+}
+
+.filter-form .check-row input {
+    width: 14px;
+    height: 14px;
+    margin-top: 2px;
+}
+
+.filter-form .check-row--radio {
+    align-items: center;
+}
+
+.filter-form .check-row--radio input {
+    margin-top: 0;
+}
+
+.price-inputs {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: end;
+    gap: 8px;
+}
+
+.price-inputs label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.price-inputs label > span {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.price-inputs input {
+    width: 100%;
+    min-width: 0;
+    min-height: 44px;
+    padding: 8px 10px;
+}
+
+.price-inputs__dash {
+    padding-bottom: 12px;
+    color: var(--muted-light);
+}
+
+.filter-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+}
+
+.filter-backdrop {
+    display: none;
+}
+
+/* --------------------------------------------------------------------------
+   Toolbar & isi katalog
+   -------------------------------------------------------------------------- */
+
+.catalog-main {
+    min-width: 0;
+}
+
+.catalog-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 26px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line-strong);
+}
+
+.filter-trigger {
+    display: none;
+}
+
+.catalog-toolbar__count {
+    margin-right: auto;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.catalog-toolbar__count span {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: var(--ink);
+}
+
+.catalog-sort {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.catalog-sort label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.catalog-sort select {
+    min-height: 40px;
+    padding: 0 34px 0 12px;
+    border: 1px solid var(--line-strong);
+    border-radius: 0;
+    background-color: var(--paper-light);
+    font-size: 12px;
+}
+
+.seller-filter-banner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 26px;
+    padding: 16px 18px;
+    border: 1px solid rgba(109, 116, 87, 0.35);
+    background: rgba(109, 116, 87, 0.07);
+}
+
+.seller-filter-banner > div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+}
+
+.seller-filter-banner strong {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 400;
+}
+
+.seller-filter-banner div span {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.seller-filter-banner .text-link {
+    margin-left: auto;
+    white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   Paginasi
+   -------------------------------------------------------------------------- */
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: clamp(40px, 5vw, 70px);
+}
+
+.pagination__arrow,
+.pagination__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line-strong);
+    font-size: 12px;
+    font-weight: 700;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.pagination__arrow .icon {
+    width: 16px;
+    height: 16px;
+}
+
+.pagination__arrow:hover,
+.pagination__number:hover {
+    border-color: var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+}
+
+.pagination__number.is-active,
+.pagination__number[aria-current="page"] {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--white);
+}
+
+.pagination__arrow.is-disabled {
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+.pagination__ellipsis {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 40px;
+    color: var(--muted-light);
+}

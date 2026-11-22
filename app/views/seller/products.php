@@ -50,7 +50,7 @@ $tabs = ['' => 'Semua', 'aktif' => 'Aktif', 'terjual' => 'Terjual', 'ditinjau' =
                                 <td><?= e(tanggal($product['created_at'])) ?></td>
                                 <td>
                                     <div class="table-actions">
-                                        <a href="<?= url('/penjual/produk/' . $product['id'] . '/edit') ?>" class="table-link" aria-label="Edit <?= e($product['title']) ?>"><?= icon('edit') ?></a>
+                                        <a href="<?= url('/penjual/produk/' . $product['id'] . '/edit') ?>" class="table-link" aria-label="Ubah <?= e($product['title']) ?>"><?= icon('edit') ?></a>
                                         <a href="<?= url('/produk/' . $product['id']) ?>" class="table-link" aria-label="Lihat <?= e($product['title']) ?>"><?= icon('eye') ?></a>
                                         <?php if ($product['status'] !== 'terjual'): ?>
                                             <form action="<?= url('/penjual/produk/' . $product['id'] . '/hapus') ?>" method="post" data-confirm="Hapus produk ini dari etalase? Tindakan ini tidak dapat dibatalkan.">

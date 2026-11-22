@@ -5,22 +5,24 @@
             <a class="brand brand--footer" href="<?= url('/') ?>">
                 <span class="brand__word">re<span class="brand__colon">:</span>wear</span>
             </a>
-            <p>Fashion deserves another life.<br>Pakaian dan sepatu preloved yang dikurasi dengan teliti.</p>
+            <p>Pakaian punya kehidupan kedua.<br>Pakaian dan sepatu bekas terawat yang dikurasi dengan teliti.</p>
             <a class="footer-email" href="mailto:<?= e($settingsFooter['contact_email'] ?? 'halo@rewear.id') ?>"><?= e($settingsFooter['contact_email'] ?? 'halo@rewear.id') ?></a>
         </div>
         <div class="site-footer__columns">
             <div>
                 <h3>Jelajahi</h3>
                 <a href="<?= url('/jelajahi') ?>">Semua produk</a>
-                <a href="<?= url('/jelajahi?kategori[]=atasan') ?>">Pakaian atasan</a>
-                <a href="<?= url('/jelajahi?kategori[]=bawahan') ?>">Celana dan rok</a>
+                <a href="<?= url('/jelajahi?kategori[]=atasan') ?>">Atasan</a>
+                <a href="<?= url('/jelajahi?kategori[]=bawahan') ?>">Bawahan</a>
+                <a href="<?= url('/jelajahi?kategori[]=outerwear') ?>">Outerwear</a>
+                <a href="<?= url('/jelajahi?kategori[]=dress') ?>">Dress</a>
                 <a href="<?= url('/jelajahi?kategori[]=sepatu') ?>">Sepatu</a>
             </div>
             <div>
                 <h3>Komunitas</h3>
                 <a href="<?= url('/tentang') ?>">Tentang kami</a>
                 <a href="<?= url('/jual') ?>">Mulai menjual</a>
-                <a href="<?= url('/studio-3d') ?>">Studio 3D</a>
+                <a href="<?= url('/studio-3d') ?>">Studio Manekin</a>
                 <a href="<?= url('/masuk') ?>">Masuk ke akun</a>
             </div>
             <div>

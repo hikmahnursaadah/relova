@@ -55,6 +55,13 @@ function e(mixed $value): string
     return htmlspecialchars((string) $value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
 
+function slugify(string $value): string
+{
+    $value = strtolower(trim($value));
+    $value = preg_replace('/[^a-z0-9]+/', '-', $value) ?? '';
+    return trim($value, '-') ?: 'produk';
+}
+
 function old(string $key, mixed $default = ''): string
 {
     static $old = null;
@@ -208,7 +215,7 @@ function conditions(): array
 
 function sizes(): array
 {
-    return ['XS', 'S', 'M', 'L', 'XL', 'XXL', '36', '37', '38', '39', '40', '41', '42', '43', '44', 'All Size'];
+    return ['XS', 'S', 'M', 'L', 'XL', 'XXL', '36', '37', '38', '39', '40', '41', '42', '43', '44', 'Satu Ukuran'];
 }
 
 function product_types(): array
@@ -217,6 +224,7 @@ function product_types(): array
         'atasan' => 'Atasan',
         'bawahan' => 'Bawahan',
         'outerwear' => 'Outerwear',
+        'dress' => 'Dress',
         'sepatu' => 'Sepatu',
     ];
 }

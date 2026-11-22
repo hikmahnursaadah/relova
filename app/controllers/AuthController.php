@@ -79,7 +79,7 @@ class AuthController extends Controller
             $errors[] = 'Nama pengguna harus 3–20 karakter dan hanya memakai huruf, angka, titik, atau garis bawah.';
         }
         if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
-            $errors[] = 'Format email belum benar.';
+            $errors[] = 'Format surel belum benar.';
         }
         if (mb_strlen($data['password']) < 8) {
             $errors[] = 'Kata sandi minimal 8 karakter.';

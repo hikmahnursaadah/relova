@@ -4,7 +4,7 @@
         <div>
             <span class="eyebrow">Disimpan untuk nanti</span>
             <h1>Favorit <em>(<?= $count ?>)</em></h1>
-            <p class="dashboard-page__sub">Barang preloved hanya satu. Simpan yang kamu pertimbangkan, lalu kembali sebelum berpindah tangan.</p>
+            <p class="dashboard-page__sub">Barang bekas biasanya hanya satu. Simpan yang kamu pertimbangkan, lalu kembali sebelum berpindah tangan.</p>
         </div>
         <a href="<?= url('/jelajahi') ?>" class="text-link">Temukan lebih banyak <?= icon('arrow-right') ?></a>
     </header>
