@@ -1,0 +1,12 @@
+[22-Nov-2026 12:34:17 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: products.slug in C:\Users\LENOVO\OneDrive\Documents\relova\app\core\Seeder.php:94
+Stack trace:
+#0 C:\Users\LENOVO\OneDrive\Documents\relova\app\core\Seeder.php(94): PDOStatement->execute(Array)
+#1 C:\Users\LENOVO\OneDrive\Documents\relova\app\core\Database.php(33): Seeder->run(Object(PDO))
+#2 C:\Users\LENOVO\OneDrive\Documents\relova\app\models\Model.php(9): Database::connection()
+#3 C:\Users\LENOVO\OneDrive\Documents\relova\app\controllers\HomeController.php(7): Model->__construct()
+#4 C:\Users\LENOVO\OneDrive\Documents\relova\app\core\Router.php(56): HomeController->index()
+#5 C:\Users\LENOVO\OneDrive\Documents\relova\app\bootstrap.php(49): Router->dispatch('GET', '/')
+#6 C:\Users\LENOVO\OneDrive\Documents\relova\public\index.php(3): require('C:\\Users\\LENOVO...')
+#7 C:\Users\LENOVO\OneDrive\Documents\relova\public\router.php(11): require('C:\\Users\\LENOVO...')
+#8 {main}
+  thrown in C:\Users\LENOVO\OneDrive\Documents\relova\app\core\Seeder.php on line 94
