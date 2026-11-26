@@ -100,3 +100,25 @@ Stack trace:
 #5 C:\laragon\www\relova\public\index.php(3): require('C:\\laragon\\www\\...')
 #6 {main}
   thrown in C:\laragon\www\relova\app\core\Database.php on line 28
+[26-Nov-2026 10:16:08 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: could not find driver in C:\laragon\www\relova\app\core\Database.php:24
+Stack trace:
+#0 C:\laragon\www\relova\app\core\Database.php(24): PDO->__construct('sqlite:C:\\larag...')
+#1 C:\laragon\www\relova\app\models\Model.php(9): Database::connection()
+#2 C:\laragon\www\relova\app\controllers\HomeController.php(7): Model->__construct()
+#3 C:\laragon\www\relova\app\core\Router.php(56): HomeController->index()
+#4 C:\laragon\www\relova\app\bootstrap.php(49): Router->dispatch('GET', '/')
+#5 C:\laragon\www\relova\public\index.php(3): require('C:\\laragon\\www\\...')
+#6 C:\laragon\www\relova\public\router.php(11): require('C:\\laragon\\www\\...')
+#7 {main}
+  thrown in C:\laragon\www\relova\app\core\Database.php on line 24
+[26-Nov-2026 10:17:22 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: could not find driver in C:\laragon\www\relova\app\core\Database.php:24
+Stack trace:
+#0 C:\laragon\www\relova\app\core\Database.php(24): PDO->__construct('sqlite:C:\\larag...')
+#1 C:\laragon\www\relova\app\models\Model.php(9): Database::connection()
+#2 C:\laragon\www\relova\app\controllers\HomeController.php(7): Model->__construct()
+#3 C:\laragon\www\relova\app\core\Router.php(56): HomeController->index()
+#4 C:\laragon\www\relova\app\bootstrap.php(49): Router->dispatch('GET', '/')
+#5 C:\laragon\www\relova\public\index.php(3): require('C:\\laragon\\www\\...')
+#6 C:\laragon\www\relova\public\router.php(11): require('C:\\laragon\\www\\...')
+#7 {main}
+  thrown in C:\laragon\www\relova\app\core\Database.php on line 24

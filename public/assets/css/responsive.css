@@ -1322,12 +1322,19 @@
 
 @media (max-width: 980px) {
     .hero {
-        padding: clamp(12px, 2.4vw, 20px) 0 clamp(28px, 4vw, 44px);
+        min-height: auto;
+        padding: 0;
+    }
+
+    .hero__shell {
+        width: 100%;
+        min-height: auto;
     }
 
     .hero__card {
         min-height: 0;
         padding: clamp(20px, 4vw, 34px);
+        border-radius: 0;
     }
 
     .hero__grid {
@@ -1349,6 +1356,7 @@
 
     .hero__media {
         height: clamp(420px, 78vw, 580px);
+        border-radius: 0;
     }
 
     .hero__proof-note {
@@ -1362,9 +1370,13 @@
 }
 
 @media (max-width: 720px) {
+    .hero__shell {
+        width: calc(100vw - 24px);
+    }
+
     .hero__card {
         padding: 18px 16px 22px;
-        border-radius: 22px;
+        border-radius: 0;
     }
 
     .hero__badge {
@@ -1392,7 +1404,7 @@
 
     .hero__media {
         height: clamp(380px, 100vw, 520px);
-        border-radius: 18px;
+        border-radius: 0;
     }
 
     .hero__media-caption {
@@ -1423,7 +1435,7 @@
 @media (max-width: 480px) {
     .hero__card {
         padding: 16px 14px 20px;
-        border-radius: 20px;
+        border-radius: 0;
     }
 
     .hero__badge {

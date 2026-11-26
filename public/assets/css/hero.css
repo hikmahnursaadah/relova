@@ -8,15 +8,15 @@
 
 .hero {
     position: relative;
-    padding: clamp(16px, 2vw, 28px) 0 clamp(28px, 3.6vw, 52px);
+    min-height: calc(100svh - var(--header-height));
+    padding: 0;
     overflow: clip;
-    background:
-        radial-gradient(ellipse at 18% 8%, rgba(255, 253, 248, 0.82), transparent 48%),
-        var(--paper);
+    background: #11162f;
 }
 
 .hero__shell {
-    width: var(--container);
+    width: 100%;
+    min-height: calc(100svh - var(--header-height));
     margin-inline: auto;
 }
 
@@ -24,24 +24,24 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    min-height: min(780px, calc(100svh - var(--header-height) - 48px));
-    padding: clamp(22px, 3.4vw, 52px);
+    min-height: calc(100svh - var(--header-height));
+    padding: clamp(38px, 5vw, 82px);
     overflow: hidden;
-    border: 1px solid rgba(29, 28, 24, 0.06);
-    border-radius: clamp(24px, 3vw, 40px);
-    background: var(--white);
-    box-shadow: 0 34px 90px -62px rgba(29, 28, 24, 0.45);
+    border: 0;
+    border-radius: 0;
+    background: #f1eff7;
+    box-shadow: 0 28px 70px -42px rgba(0, 0, 0, 0.72);
 }
 
 .hero__card::before {
     content: "";
     position: absolute;
-    top: -22%;
-    right: -8%;
-    width: 46%;
-    height: 52%;
+    top: -30%;
+    right: -18%;
+    width: 58%;
+    height: 58%;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(231, 201, 189, 0.34), transparent 68%);
+    background: radial-gradient(circle, rgba(220, 215, 232, 0.74), transparent 68%);
     pointer-events: none;
 }
 
@@ -49,15 +49,15 @@
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+    grid-template-columns: minmax(330px, 0.82fr) minmax(0, 1.18fr);
     align-items: center;
     flex: 1;
-    gap: clamp(32px, 4.6vw, 76px);
+    gap: clamp(20px, 2.8vw, 42px);
 }
 
 .hero__copy {
     min-width: 0;
-    padding-block: clamp(6px, 1vw, 14px);
+    padding: clamp(12px, 2vw, 24px) 0 0 clamp(8px, 1vw, 16px);
 }
 
 .hero__badge {
@@ -92,12 +92,12 @@
 }
 
 .hero__title {
-    margin-top: clamp(20px, 2.6vw, 34px);
-    font-family: var(--serif);
-    font-size: clamp(2.8rem, 5.2vw, 5.6rem);
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(4.3rem, 6.4vw, 6.2rem);
     font-weight: 700;
     letter-spacing: -0.055em;
-    line-height: 0.98;
+    line-height: 0.9;
 }
 
 .hero__title > span {
@@ -110,11 +110,15 @@
 }
 
 .hero__description {
-    max-width: 46ch;
-    margin-top: clamp(20px, 2.4vw, 30px);
-    font-size: clamp(14px, 1.05vw, 16px);
-    line-height: 1.75;
-    color: var(--muted);
+    max-width: 34ch;
+    margin-top: clamp(24px, 3vw, 38px);
+    font-size: clamp(14px, 1.15vw, 17px);
+    line-height: 1.55;
+    color: #20202a;
+}
+
+.hero__copy-cta {
+    margin-top: clamp(24px, 3vw, 38px);
 }
 
 .hero__proof {
@@ -163,26 +167,23 @@
 .hero__media {
     position: relative;
     width: 100%;
-    height: clamp(420px, 42vw, 560px);
+    height: clamp(500px, 45vw, 610px);
     margin: 0;
     overflow: hidden;
-    border-radius: clamp(18px, 2.4vw, 30px);
-    background: var(--paper-deep);
+    border: 0;
+    border-radius: 0;
+    background: transparent;
 }
 
 .hero__media::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(29, 28, 24, 0.22), transparent 32%);
-    pointer-events: none;
+    display: none;
 }
 
 .hero__media img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 50% 20%;
+    object-position: 52% 18%;
     transition: transform 1.2s var(--ease);
 }
 

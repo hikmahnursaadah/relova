@@ -16,43 +16,19 @@ $liveStats = $liveStats ?? ['products' => 0, 'sellers' => 0, 'cities' => 0];
         <div class="hero__card">
             <div class="hero__grid">
                 <div class="hero__copy">
-                    <span class="hero__badge" data-hero-reveal>
-                        <span class="hero__badge-icon"><?= icon('heart') ?></span>
-                        Kurasi edisi 02
-                    </span>
                     <h1 class="hero__title" data-hero-title>
-                        <span>Setiap Gaya</span>
-                        <span>Punya <em>Cerita</em></span>
-                        <span>Kedua.</span>
+                        <span>Inspire</span>
+                        <span>Change</span>
                     </h1>
                     <p class="hero__description" data-hero-reveal>
-                        Temukan pakaian dan sepatu bekas pilihan, atau beri kesempatan baru pada barang yang sudah tidak kamu gunakan. Setiap produk dikurasi dengan teliti dan siap menemani cerita berikutnya.
+                        Gaya bukan sekadar bentuk ekspresi—ia adalah sebuah gerakan. Temukan pakaian pilihan yang siap melanjutkan ceritamu.
                     </p>
-                    <div class="hero__proof" data-hero-reveal>
-                        <div class="hero__stat">
-                            <strong data-count="<?= (int) $liveStats['products'] ?>"><?= number_format((int) $liveStats['products'], 0, ',', '.') ?></strong>
-                            <span>produk aktif</span>
-                        </div>
-                        <div class="hero__stat">
-                            <strong data-count="<?= (int) $liveStats['sellers'] ?>"><?= number_format((int) $liveStats['sellers'], 0, ',', '.') ?></strong>
-                            <span>penjual terkurasi</span>
-                        </div>
-                        <p class="hero__proof-note">Setiap produk diperiksa.<br>Setiap cerita dijaga.</p>
-                    </div>
+                    <a href="<?= url('/jelajahi') ?>" class="hero__cta hero__copy-cta">Jelajahi Koleksi <?= icon('arrow-up-right') ?></a>
                 </div>
 
                 <figure class="hero__media" data-hero-reveal>
                     <img src="<?= asset('images/hero/relova-hero.jpg') ?>" alt="Model berambut pirang mengenakan blazer hitam dari koleksi Relova" width="1200" height="1800" fetchpriority="high" decoding="async">
-                    <figcaption class="hero__media-caption">
-                        <span>Koleksi 02</span>
-                        <span>Bandung — Jakarta</span>
-                    </figcaption>
                 </figure>
-            </div>
-
-            <div class="hero__footer" data-hero-reveal>
-                <a href="<?= url('/jelajahi') ?>" class="hero__cta">Jelajahi Koleksi <?= icon('arrow-up-right') ?></a>
-                <a href="<?= url('/jual') ?>" class="hero__cta-secondary">Mulai Menjual <?= icon('arrow-right') ?></a>
             </div>
         </div>
     </div>
