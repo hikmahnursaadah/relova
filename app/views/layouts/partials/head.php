@@ -2,6 +2,7 @@
 $page = $page ?? '';
 $pageTitle = $title ?? 're:wear';
 $description = $description ?? 'Tempat jual beli pakaian dan sepatu bekas terawat yang masih layak dipakai.';
+$themeColor = $page === 'auth' ? '#f3f0e8' : '#f1ede4';
 $bodyClass = trim('site-body ' . body_page($page) . (Auth::check() ? ' is-authenticated' : ' is-guest'));
 ?>
 <!DOCTYPE html>
@@ -9,7 +10,7 @@ $bodyClass = trim('site-body ' . body_page($page) . (Auth::check() ? ' is-authen
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f1ede4">
+    <meta name="theme-color" content="<?= e($themeColor) ?>">
     <meta name="description" content="<?= e($description) ?>">
     <meta name="csrf-token" content="<?= e(Csrf::token()) ?>">
     <title><?= e($pageTitle) ?></title>
@@ -24,6 +25,9 @@ $bodyClass = trim('site-body ' . body_page($page) . (Auth::check() ? ' is-authen
     <link rel="stylesheet" href="<?= asset('css/dashboard.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/pages.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/responsive.css') ?>">
+    <?php if ($page === 'auth'): ?>
+        <link rel="stylesheet" href="<?= asset('css/auth-login.css') ?>">
+    <?php endif; ?>
     <script>document.documentElement.classList.add('has-js');</script>
 </head>
 <body class="<?= e($bodyClass) ?>">

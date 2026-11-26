@@ -16,29 +16,36 @@ class AuthController extends Controller
 
     public function login(): void
     {
-        $email = strtolower(trim((string) post('email')));
+        $identifier = strtolower(trim((string) post('email')));
         $password = (string) post('password');
         $next = Auth::safeNext((string) post('next'), '');
+        $loginUrl = '/masuk' . ($next ? '?next=' . urlencode($next) : '');
 
-        if ($email === '' || $password === '') {
-            Session::flash('error', 'Email dan kata sandi wajib diisi.');
-            Session::old(['email' => $email, 'next' => $next]);
-            $this->redirect('/masuk' . ($next ? '?next=' . urlencode($next) : ''));
+        if ($identifier === '' || $password === '') {
+            Session::flash('error', 'Email atau username dan kata sandi wajib diisi.');
+            Session::old(['email' => $identifier, 'next' => $next]);
+            $this->redirect($loginUrl);
         }
 
-        $user = (new UserModel())->findByEmail($email);
+        $users = new UserModel();
+        $user = $users->findByEmail($identifier) ?? $users->findByUsername($identifier);
         if (!$user || !password_verify($password, $user['password_hash'])) {
-            Session::flash('error', 'Email atau kata sandi tidak sesuai.');
-            Session::old(['email' => $email, 'next' => $next]);
-            $this->redirect('/masuk' . ($next ? '?next=' . urlencode($next) : ''));
+            Session::flash('error', 'Email/username atau kata sandi tidak sesuai.');
+            Session::old(['email' => $identifier, 'next' => $next]);
+            $this->redirect($loginUrl);
         }
         if ($user['status'] !== 'aktif') {
             Session::flash('error', 'Akun ini sedang ditangguhkan. Hubungi tim re:wear untuk bantuan.');
-            Session::old(['email' => $email]);
+            Session::old(['email' => $identifier]);
             $this->redirect('/masuk');
         }
 
         Auth::loginById((int) $user['id']);
+        if (post('remember')) {
+            Session::remember();
+        } else {
+            Session::forgetRemember();
+        }
         Session::flash('success', 'Selamat datang kembali, ' . $user['name'] . '.');
         if ($next) {
             $this->redirect($next);
@@ -115,6 +122,7 @@ class AuthController extends Controller
 
     public function logout(): void
     {
+        Session::forgetRemember();
         Auth::logout();
         Session::flash('info', 'Kamu telah keluar dari akun.');
         $this->redirect('/');
