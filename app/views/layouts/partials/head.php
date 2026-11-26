@@ -1,6 +1,6 @@
 <?php
 $page = $page ?? '';
-$pageTitle = $title ?? 're:wear';
+$pageTitle = $title ?? 'Relova';
 $description = $description ?? 'Tempat jual beli pakaian dan sepatu bekas terawat yang masih layak dipakai.';
 $themeColor = $page === 'auth' ? '#f3f0e8' : '#f1ede4';
 $bodyClass = trim('site-body ' . body_page($page) . (Auth::check() ? ' is-authenticated' : ' is-guest'));
@@ -15,8 +15,9 @@ $bodyClass = trim('site-body ' . body_page($page) . (Auth::check() ? ' is-authen
     <meta name="csrf-token" content="<?= e(Csrf::token()) ?>">
     <title><?= e($pageTitle) ?></title>
     <link rel="icon" href="<?= asset('images/branding/favicon.svg') ?>" type="image/svg+xml">
-    <link rel="preload" href="<?= asset('fonts/instrument-serif-regular.ttf') ?>" as="font" type="font/ttf" crossorigin>
-    <link rel="preload" href="<?= asset('fonts/manrope-400.ttf') ?>" as="font" type="font/ttf" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&amp;display=swap">
     <link rel="stylesheet" href="<?= asset('css/global.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/navbar.css') ?>">
     <link rel="stylesheet" href="<?= asset('css/hero.css') ?>">

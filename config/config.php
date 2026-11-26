@@ -7,7 +7,7 @@ if ($basePath === '.' || $basePath === '/') {
 }
 
 return [
-    'name' => 're:wear',
+    'name' => 'Relova',
     'tagline' => 'Pakaian punya kehidupan kedua.',
     'description' => 'Tempat jual beli pakaian dan sepatu bekas terawat yang masih layak dipakai.',
     'base_url' => getenv('APP_URL') ?: $basePath,

@@ -1,5 +1,5 @@
 /*
- * re:wear — manekin 3D prosedural
+ * Relova — manekin 3D prosedural
  * Skrip klasik ini memuat modul Three.js lokal secara dinamis. Jika WebGL tidak
  * tersedia, ilustrasi SVG bawaan tetap ditampilkan tanpa teks pengganti Inggris.
  */

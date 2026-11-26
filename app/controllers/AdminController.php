@@ -14,7 +14,7 @@ class AdminController extends Controller
         $orderModel = new OrderModel();
         $reportModel = new ReportModel();
         $this->render('admin/dashboard', [
-            'title' => 'Dasbor Administrator — re:wear',
+            'title' => 'Dasbor Administrator — Relova',
             'page' => 'admin-dashboard',
             'userTotal' => $userModel->total(),
             'newUsers' => $userModel->newThisMonth(),
@@ -40,7 +40,7 @@ class AdminController extends Controller
         $page = max(1, (int) query('halaman', 1));
         $model = new UserModel();
         $this->render('admin/users', [
-            'title' => 'Kelola Pengguna — re:wear',
+            'title' => 'Kelola Pengguna — Relova',
             'page' => 'admin-users',
             'users' => $model->all($filters, $page, 15),
             'total' => $model->countAll($filters),
@@ -76,8 +76,8 @@ class AdminController extends Controller
             'akun',
             $status === 'aktif' ? 'Akunmu telah diaktifkan kembali' : 'Akunmu ditangguhkan',
             $status === 'aktif'
-                ? 'Akunmu kembali aktif. Tetap patuhi ketentuan komunitas re:wear.'
-                : 'Akunmu ditangguhkan sementara. Hubungi tim re:wear jika membutuhkan bantuan.',
+                ? 'Akunmu kembali aktif. Tetap patuhi ketentuan komunitas Relova.'
+                : 'Akunmu ditangguhkan sementara. Hubungi tim Relova jika membutuhkan bantuan.',
             '/'
         );
         Session::flash('success', 'Status akun ' . $target['name'] . ' diubah menjadi ' . ($status === 'aktif' ? 'aktif' : 'ditangguhkan') . '.');
@@ -95,7 +95,7 @@ class AdminController extends Controller
         $model = new ProductModel();
         $result = $model->adminPaginate($filters, $page, 15);
         $this->render('admin/products', [
-            'title' => 'Moderasi Produk — re:wear',
+            'title' => 'Moderasi Produk — Relova',
             'page' => 'admin-products',
             'products' => $result['items'],
             'pagination' => $result,
@@ -153,7 +153,7 @@ class AdminController extends Controller
         $model = new OrderModel();
         $result = $model->adminPaginate($filters, $page, 15);
         $this->render('admin/transactions', [
-            'title' => 'Transaksi — re:wear',
+            'title' => 'Transaksi — Relova',
             'page' => 'admin-transactions',
             'orders' => $result['items'],
             'pagination' => $result,
@@ -172,7 +172,7 @@ class AdminController extends Controller
             return;
         }
         $this->render('admin/order-detail', [
-            'title' => 'Transaksi ' . $order['order_number'] . ' — re:wear',
+            'title' => 'Transaksi ' . $order['order_number'] . ' — Relova',
             'page' => 'admin-order-detail',
             'order' => $order,
         ], 'admin');
@@ -216,7 +216,7 @@ class AdminController extends Controller
     public function settings(): void
     {
         $this->render('admin/settings', [
-            'title' => 'Pengaturan Platform — re:wear',
+            'title' => 'Pengaturan Platform — Relova',
             'page' => 'admin-settings',
             'settings' => (new SettingModel())->all(),
             'categories' => (new CategoryModel())->all(),

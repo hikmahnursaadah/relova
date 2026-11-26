@@ -1,5 +1,5 @@
 /*
- * re:wear — pengalaman produk, katalog, favorit, dan checkout.
+ * Relova — pengalaman produk, katalog, favorit, dan checkout.
  */
 (function (global) {
     'use strict';

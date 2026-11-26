@@ -2,7 +2,7 @@
 <section class="sell-hero">
     <div class="container sell-hero__grid">
         <div class="sell-hero__copy">
-            <span class="eyebrow" data-reveal>Jual di re:wear — kurasi vol. 02</span>
+            <span class="eyebrow" data-reveal>Jual di Relova — kurasi vol. 02</span>
             <h1 data-reveal>Lemarimu<br>punya <em>cerita</em><br>yang belum selesai.</h1>
             <p class="sell-hero__lead" data-reveal>Pakaian dan sepatu yang sudah jarang kamu pakai masih layak menemani hari-hari orang lain. Unggah dengan jujur, temukan pemilik berikutnya, dan biarkan ceritanya berlanjut.</p>
             <div class="sell-hero__actions" data-reveal>
@@ -81,13 +81,13 @@
         <div class="sell-editorial__copy">
             <span class="eyebrow" data-reveal>Standar kurasi</span>
             <h2 data-reveal>Barang yang layak,<br>bukan sekadar <em>lama.</em></h2>
-            <p data-reveal>re:wear hanya menerima pakaian dan sepatu bekas yang masih layak dipakai. Kami tidak menjual tas atau aksesori sebagai produk aktif, dan setiap laporan pembeli akan ditinjau tim moderasi.</p>
+            <p data-reveal>Relova hanya menerima pakaian dan sepatu bekas yang masih layak dipakai. Kami tidak menjual tas atau aksesori sebagai produk aktif, dan setiap laporan pembeli akan ditinjau tim moderasi.</p>
             <div class="sell-checks">
                 <div data-reveal><span><?= icon('check') ?></span><div><strong>Bersih dan siap pakai</strong><p>Cuci atau bersihkan sebelum difoto dan dikirim.</p></div></div>
                 <div data-reveal><span><?= icon('check') ?></span><div><strong>Tanpa kerusakan tersembunyi</strong><p>Catat noda, lubang, atau lecet sekecil apa pun.</p></div></div>
                 <div data-reveal><span><?= icon('check') ?></span><div><strong>Harga wajar</strong><p>Lihat barang serupa dan pertimbangkan kondisinya.</p></div></div>
             </div>
-            <blockquote class="sell-quote" data-reveal>“Pembeli tidak mencari sempurna. Mereka mencari kejujuran.”<cite>— Catatan kurator re:wear</cite></blockquote>
+            <blockquote class="sell-quote" data-reveal>“Pembeli tidak mencari sempurna. Mereka mencari kejujuran.”<cite>— Catatan kurator Relova</cite></blockquote>
         </div>
     </div>
 </section>
@@ -112,16 +112,16 @@
             <span class="eyebrow" data-reveal>Sebelum mulai</span>
             <h2 data-reveal>Pertanyaan yang<br><em>sering muncul.</em></h2>
             <p data-reveal>Masih ragu? Ini hal-hal yang biasanya ditanyakan penjual baru.</p>
-            <a href="<?= url('/tentang') ?>" class="text-link" data-reveal>Kenali re:wear lebih dekat <?= icon('arrow-up-right') ?></a>
+            <a href="<?= url('/tentang') ?>" class="text-link" data-reveal>Kenali Relova lebih dekat <?= icon('arrow-up-right') ?></a>
         </div>
         <div class="sell-faq__list">
             <details class="faq-item" data-reveal open>
-                <summary>Apakah menjual di re:wear berbayar? <?= icon('plus') ?></summary>
+                <summary>Apakah menjual di Relova berbayar? <?= icon('plus') ?></summary>
                 <p>Tidak. Membuat akun dan mengunggah produk tidak dikenakan biaya. Kamu hanya perlu menyepakati harga dan ongkir langsung dengan pembeli.</p>
             </details>
             <details class="faq-item" data-reveal>
                 <summary>Bagaimana pembayaran dilakukan? <?= icon('plus') ?></summary>
-                <p>re:wear tidak memproses pembayaran otomatis. Kamu dan pembeli menyepakati metode pembayaran serta pengiriman melalui pesan. Sistem hanya mencatat pesanan dan statusnya.</p>
+                <p>Relova tidak memproses pembayaran otomatis. Kamu dan pembeli menyepakati metode pembayaran serta pengiriman melalui pesan. Sistem hanya mencatat pesanan dan statusnya.</p>
             </details>
             <details class="faq-item" data-reveal>
                 <summary>Apakah saya bisa membeli dan menjual dengan akun yang sama? <?= icon('plus') ?></summary>

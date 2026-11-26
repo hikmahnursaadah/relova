@@ -1,5 +1,5 @@
 /* ==========================================================================
-   re:wear — kartu produk, grid, katalog, filter, dan paginasi
+   Relova — kartu produk, grid, katalog, filter, dan paginasi
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -241,7 +241,7 @@
 .product-card__price {
     font-family: var(--serif);
     font-size: clamp(18px, 1.6vw, 23px);
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1;
 }
 
@@ -402,7 +402,7 @@
 .filter-panel__head strong {
     font-family: var(--serif);
     font-size: 29px;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1;
 }
 
@@ -550,7 +550,7 @@
 .catalog-toolbar__count span {
     font-family: var(--serif);
     font-size: 19px;
-    font-weight: 400;
+    font-weight: 600;
     letter-spacing: 0;
     color: var(--ink);
 }
@@ -598,7 +598,7 @@
 .seller-filter-banner strong {
     font-family: var(--serif);
     font-size: 19px;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .seller-filter-banner div span {

@@ -4,7 +4,7 @@ class View
 {
     public static function render(string $template, array $data = [], ?string $layout = 'main'): void
     {
-        $data['title'] = $data['title'] ?? 're:wear';
+        $data['title'] = $data['title'] ?? 'Relova';
         $data['page'] = $data['page'] ?? '';
         $viewFile = dirname(__DIR__) . '/views/' . $template . '.php';
 

@@ -8,7 +8,7 @@ class AuthController extends Controller
             $this->redirect(Auth::isAdmin() ? '/admin' : '/');
         }
         $this->render('auth/login', [
-            'title' => 'Masuk — re:wear',
+            'title' => 'Masuk — Relova',
             'page' => 'auth',
             'next' => query('next', ''),
         ], 'main');
@@ -35,7 +35,7 @@ class AuthController extends Controller
             $this->redirect($loginUrl);
         }
         if ($user['status'] !== 'aktif') {
-            Session::flash('error', 'Akun ini sedang ditangguhkan. Hubungi tim re:wear untuk bantuan.');
+            Session::flash('error', 'Akun ini sedang ditangguhkan. Hubungi tim Relova untuk bantuan.');
             Session::old(['email' => $identifier]);
             $this->redirect('/masuk');
         }
@@ -62,7 +62,7 @@ class AuthController extends Controller
             $this->redirect('/');
         }
         $this->render('auth/register', [
-            'title' => 'Buat Akun — re:wear',
+            'title' => 'Buat Akun — Relova',
             'page' => 'auth',
         ], 'main');
     }
@@ -95,7 +95,7 @@ class AuthController extends Controller
             $errors[] = 'Konfirmasi kata sandi belum sama.';
         }
         if (!post('terms')) {
-            $errors[] = 'Kamu perlu menyetujui ketentuan komunitas re:wear.';
+            $errors[] = 'Kamu perlu menyetujui ketentuan komunitas Relova.';
         }
 
         $users = new UserModel();
@@ -116,7 +116,7 @@ class AuthController extends Controller
 
         $id = $users->create($data);
         Auth::loginById($id);
-        Session::flash('success', 'Akunmu berhasil dibuat. Selamat datang di re:wear.');
+        Session::flash('success', 'Akunmu berhasil dibuat. Selamat datang di Relova.');
         $this->redirect('/');
     }
 

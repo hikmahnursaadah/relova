@@ -8,7 +8,7 @@ class SellerController extends Controller
             $this->redirect('/penjual');
         }
         $this->render('seller/landing', [
-            'title' => 'Mulai Menjual — re:wear',
+            'title' => 'Mulai Menjual — Relova',
             'page' => 'sell',
             'products' => (new ProductModel())->featured(3),
         ], 'main');
@@ -24,7 +24,7 @@ class SellerController extends Controller
         $orderModel = new OrderModel();
         $reviewModel = new ReviewModel();
         $this->render('seller/dashboard', [
-            'title' => 'Dasbor Penjual — re:wear',
+            'title' => 'Dasbor Penjual — Relova',
             'page' => 'seller-dashboard',
             'productStats' => $productModel->sellerStats(Auth::id()),
             'orderStats' => $orderModel->sellerStats(Auth::id()),
@@ -43,7 +43,7 @@ class SellerController extends Controller
         }
         $status = (string) query('status');
         $this->render('seller/products', [
-            'title' => 'Produk Saya — re:wear',
+            'title' => 'Produk Saya — Relova',
             'page' => 'seller-products',
             'products' => (new ProductModel())->forSeller(Auth::id(), ['status' => $status]),
             'statusFilter' => $status,
@@ -58,7 +58,7 @@ class SellerController extends Controller
             $this->redirect('/admin/produk');
         }
         $this->render('seller/form', [
-            'title' => 'Tambah Produk — re:wear',
+            'title' => 'Tambah Produk — Relova',
             'page' => 'seller-product-form',
             'product' => null,
             'images' => [],
@@ -107,7 +107,7 @@ class SellerController extends Controller
             $this->redirect('/penjual/produk');
         }
         $this->render('seller/form', [
-            'title' => 'Ubah Produk — re:wear',
+            'title' => 'Ubah Produk — Relova',
             'page' => 'seller-product-form',
             'product' => $product,
             'images' => $productModel->images((int) $product['id']),
@@ -185,7 +185,7 @@ class SellerController extends Controller
         $status = (string) query('status');
         $orderModel = new OrderModel();
         $this->render('seller/orders', [
-            'title' => 'Pesanan Masuk — re:wear',
+            'title' => 'Pesanan Masuk — Relova',
             'page' => 'seller-orders',
             'orders' => $orderModel->forSeller(Auth::id(), $status),
             'statusFilter' => $status,
@@ -204,7 +204,7 @@ class SellerController extends Controller
             return;
         }
         $this->render('seller/order-detail', [
-            'title' => 'Kelola Pesanan ' . $order['order_number'] . ' — re:wear',
+            'title' => 'Kelola Pesanan ' . $order['order_number'] . ' — Relova',
             'page' => 'seller-order-detail',
             'order' => $order,
         ], 'seller');

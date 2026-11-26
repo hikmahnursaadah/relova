@@ -11,7 +11,7 @@ class ChatController extends Controller
         $chatModel = new ChatModel();
         $conversations = $chatModel->conversations(Auth::id());
         $this->render('chat/index', [
-            'title' => 'Pesan — re:wear',
+            'title' => 'Pesan — Relova',
             'page' => 'chat',
             'conversations' => $conversations,
             'activeChat' => null,
@@ -32,7 +32,7 @@ class ChatController extends Controller
         $chatModel->markRead((int) $chat['id'], Auth::id());
 
         $this->render('chat/index', [
-            'title' => 'Pesan dengan ' . (((int) $chat['buyer_id'] === Auth::id()) ? $chat['seller_name'] : $chat['buyer_name']) . ' — re:wear',
+            'title' => 'Pesan dengan ' . (((int) $chat['buyer_id'] === Auth::id()) ? $chat['seller_name'] : $chat['buyer_name']) . ' — Relova',
             'page' => 'chat',
             'conversations' => $chatModel->conversations(Auth::id()),
             'activeChat' => $chat,

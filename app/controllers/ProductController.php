@@ -28,7 +28,7 @@ class ProductController extends Controller
         $seller = $filters['seller_id'] ? (new UserModel())->sellerProfile($filters['seller_id']) : null;
 
         $this->render('products/index', [
-            'title' => 'Jelajahi Koleksi — re:wear',
+            'title' => 'Jelajahi Koleksi — Relova',
             'page' => 'catalog',
             'products' => $result['items'],
             'pagination' => $result,
@@ -71,7 +71,7 @@ class ProductController extends Controller
         }
 
         $this->render('products/detail', [
-            'title' => $product['title'] . ' — re:wear',
+            'title' => $product['title'] . ' — Relova',
             'page' => 'product-detail',
             'product' => $product,
             'images' => $images,

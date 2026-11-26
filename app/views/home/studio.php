@@ -9,7 +9,7 @@ $studioOutfits = [
 ?>
 <section class="studio-hero" data-studio-page>
     <div class="studio-hero__head container">
-        <span class="eyebrow" data-reveal>Studio 3D — re:wear</span>
+        <span class="eyebrow" data-reveal>Studio 3D — Relova</span>
         <div class="studio-hero__title-row">
             <h1 data-reveal>Coba dulu.<br><em>Kenali jatuhnya.</em></h1>
             <p data-reveal>Manekin digital kami memperlihatkan bagaimana sebuah potongan bergerak dan jatuh di tubuh. Gerakkan kursor untuk memutar, lalu pilih gaya untuk melihat tampilan lain.</p>

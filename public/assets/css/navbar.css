@@ -1,5 +1,5 @@
 /* ==========================================================================
-   re:wear — header editorial dua baris, zipper garment, popover & pencarian
+   Relova — header editorial dua baris, zipper garment, popover & pencarian
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -42,14 +42,11 @@
 
 .brand__word {
     font-family: var(--serif);
-    font-size: clamp(28px, 2.7vw, 38px);
-    letter-spacing: -0.045em;
+    font-size: clamp(27px, 2.5vw, 36px);
+    font-weight: 700;
+    letter-spacing: -0.055em;
     line-height: 0.9;
     white-space: nowrap;
-}
-
-.brand__colon {
-    color: var(--accent);
 }
 
 .brand__note {
@@ -61,10 +58,6 @@
     line-height: 1;
     text-transform: uppercase;
     color: var(--muted);
-}
-
-.brand:hover .brand__colon {
-    color: var(--sage);
 }
 
 /* Utilitas ikon ----------------------------------------------------------- */
@@ -221,7 +214,7 @@
 .nav-popover__head strong {
     font-family: var(--serif);
     font-size: 22px;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .nav-popover__head a {
@@ -514,7 +507,7 @@
 .nav-link > span {
     font-family: var(--serif);
     font-size: 13px;
-    font-weight: 400;
+    font-weight: 600;
     letter-spacing: 0;
     color: var(--accent);
 }
@@ -667,7 +660,7 @@
 .clothing-tag__copy strong {
     font-family: var(--serif);
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1;
 }
 

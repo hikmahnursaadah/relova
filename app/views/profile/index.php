@@ -173,14 +173,14 @@ $reviewTotal = (int) ($reviewStats['total'] ?? 0);
                         <a href="<?= url('/pesanan') ?>"><?= icon('box') ?><span>Pesanan saya</span><?= icon('chevron-right') ?></a>
                         <a href="<?= url('/favorit') ?>"><?= icon('heart') ?><span>Favorit</span><?= icon('chevron-right') ?></a>
                     <?php endif; ?>
-                    <a href="<?= url('/tentang') ?>"><?= icon('info') ?><span>Tentang re:wear</span><?= icon('chevron-right') ?></a>
+                    <a href="<?= url('/tentang') ?>"><?= icon('info') ?><span>Tentang Relova</span><?= icon('chevron-right') ?></a>
                 </div>
             </section>
 
             <section class="panel-card panel-card--accent profile-help">
                 <span class="eyebrow">Butuh bantuan?</span>
                 <h2>Kami membaca setiap pesan.</h2>
-                <p>Jika ada masalah dengan pesanan atau akun, hubungi tim re:wear melalui surel.</p>
+                <p>Jika ada masalah dengan pesanan atau akun, hubungi tim Relova melalui surel.</p>
                 <a href="mailto:<?= e((new SettingModel())->get('contact_email', 'halo@rewear.id')) ?>" class="text-link">Kirim surel <?= icon('arrow-up-right') ?></a>
             </section>
 

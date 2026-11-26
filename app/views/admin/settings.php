@@ -6,7 +6,7 @@ $reportStatus = ['' => 'Semua status', 'baru' => 'Baru', 'diproses' => 'Diproses
     <header class="admin-page__head">
         <div>
             <span class="eyebrow">Konfigurasi platform</span>
-            <h1>Pengaturan <em>re:wear.</em></h1>
+            <h1>Pengaturan <em>Relova.</em></h1>
             <p>Identitas situs, kategori katalog, dan laporan komunitas dalam satu panel.</p>
         </div>
     </header>
@@ -26,7 +26,7 @@ $reportStatus = ['' => 'Semua status', 'baru' => 'Baru', 'diproses' => 'Diproses
             <div class="field-row">
                 <div class="field">
                     <label for="setting-site-name">Nama situs</label>
-                    <input id="setting-site-name" type="text" name="site_name" value="<?= e($settings['site_name'] ?? 're:wear') ?>" required>
+                    <input id="setting-site-name" type="text" name="site_name" value="<?= e($settings['site_name'] ?? 'Relova') ?>" required>
                 </div>
                 <div class="field">
                     <label for="setting-site-tagline">Tagline</label>

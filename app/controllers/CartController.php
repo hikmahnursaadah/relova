@@ -81,7 +81,7 @@ class CartController extends Controller
         }
         $items = $this->items();
         $this->render('cart/index', [
-            'title' => 'Keranjang — re:wear',
+            'title' => 'Keranjang — Relova',
             'page' => 'cart',
             'items' => $items,
             'groups' => $this->groupedItems($items),
@@ -165,7 +165,7 @@ class CartController extends Controller
             $this->redirect('/jelajahi');
         }
         $this->render('cart/checkout', [
-            'title' => 'Konfirmasi Pesanan — re:wear',
+            'title' => 'Konfirmasi Pesanan — Relova',
             'page' => 'checkout',
             'items' => $items,
             'groups' => $this->groupedItems($items),
@@ -254,7 +254,7 @@ class CartController extends Controller
         }
         Session::forget('cart');
         $this->render('cart/success', [
-            'title' => 'Pesanan Dibuat — re:wear',
+            'title' => 'Pesanan Dibuat — Relova',
             'page' => 'order-success',
             'orderIds' => $created,
         ], Auth::isSeller() ? 'seller' : 'buyer');

@@ -11,7 +11,7 @@ class OrderController extends Controller
         $status = (string) query('status');
         $orderModel = new OrderModel();
         $this->render('orders/index', [
-            'title' => 'Pesanan Saya — re:wear',
+            'title' => 'Pesanan Saya — Relova',
             'page' => 'orders',
             'orders' => $orderModel->forBuyer(Auth::id(), $status),
             'statusFilter' => $status,
@@ -40,7 +40,7 @@ class OrderController extends Controller
         $canCancel = (int) $order['buyer_id'] === Auth::id() && in_array($order['status'], ['menunggu', 'dikonfirmasi', 'diproses'], true);
         $canReview = (int) $order['buyer_id'] === Auth::id() && $orderModel->canReview((int) $order['id'], Auth::id());
         $this->render('orders/detail', [
-            'title' => 'Pesanan ' . $order['order_number'] . ' — re:wear',
+            'title' => 'Pesanan ' . $order['order_number'] . ' — Relova',
             'page' => 'order-detail',
             'order' => $order,
             'canCancel' => $canCancel,

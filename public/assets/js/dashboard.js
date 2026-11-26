@@ -1,5 +1,5 @@
 /*
- * re:wear — penyempurna interaksi dasbor pembeli, penjual, dan administrator.
+ * Relova — penyempurna interaksi dasbor pembeli, penjual, dan administrator.
  * Skrip ini sengaja ringan: pekerjaan utama sudah ditangani main.js.
  */
 (function (global) {

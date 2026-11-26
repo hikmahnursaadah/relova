@@ -2,7 +2,7 @@
     <div class="search-overlay__scrim" data-search-close></div>
     <div class="search-overlay__panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
         <div class="search-overlay__head">
-            <span class="eyebrow">Cari di re:wear</span>
+            <span class="eyebrow">Cari di Relova</span>
             <button type="button" class="icon-button" data-search-close aria-label="Tutup pencarian"><?= icon('close') ?></button>
         </div>
         <h2 id="search-title" class="search-overlay__title">Apa yang sedang kamu cari?</h2>

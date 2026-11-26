@@ -5,9 +5,9 @@ $liveStats = $liveStats ?? ['sellers' => 0, 'cities' => 0];
 <section class="about-hero section">
     <div class="container about-hero__grid">
         <div class="about-hero__copy">
-            <span class="eyebrow" data-reveal>Tentang re:wear</span>
+            <span class="eyebrow" data-reveal>Tentang Relova</span>
             <h1 data-reveal>Pakaian yang <em>bertahan,</em><br>bukan yang berhenti.</h1>
-            <p class="about-hero__lead" data-reveal>re:wear lahir dari keyakinan sederhana: pakaian bagus tidak seharusnya berakhir di lemari. Kami menghubungkan orang yang siap melepas dengan orang yang siap memberi cerita baru.</p>
+            <p class="about-hero__lead" data-reveal>Relova lahir dari keyakinan sederhana: pakaian bagus tidak seharusnya berakhir di lemari. Kami menghubungkan orang yang siap melepas dengan orang yang siap memberi cerita baru.</p>
             <div class="about-hero__meta" data-reveal>
                 <div><strong>2026</strong><span>mulai dikurasi</span></div>
                 <div><strong><?= number_format((int) ($liveStats['sellers'] ?? 0), 0, ',', '.') ?></strong><span>penjual terhubung</span></div>
@@ -72,7 +72,7 @@ $liveStats = $liveStats ?? ['sellers' => 0, 'cities' => 0];
             <span class="about-process__label">Rak kurasi / Bandung</span>
         </div>
         <div class="about-process__copy">
-            <span class="eyebrow" data-reveal>Bagaimana re:wear bekerja</span>
+            <span class="eyebrow" data-reveal>Bagaimana Relova bekerja</span>
             <h2 data-reveal>Dari satu lemari<br>ke <em>lemari lain.</em></h2>
             <ol class="about-steps">
                 <li data-reveal><span>01</span><div><strong>Penjual mengunggah</strong><p>Lengkapi kondisi, ukuran, harga, dan foto barang dari beberapa sisi.</p></div></li>
@@ -91,7 +91,7 @@ $liveStats = $liveStats ?? ['sellers' => 0, 'cities' => 0];
                 <span class="eyebrow" data-reveal>Orang di balik barang</span>
                 <h2 data-reveal>Penjual yang <em>merawat cerita.</em></h2>
             </div>
-            <p class="section-heading__copy" data-reveal>Mereka adalah pembeli, penjual, dan penikmat mode yang sama. Kenali beberapa suara dari komunitas re:wear.</p>
+            <p class="section-heading__copy" data-reveal>Mereka adalah pembeli, penjual, dan penikmat mode yang sama. Kenali beberapa suara dari komunitas Relova.</p>
         </header>
         <div class="seller-profile-grid">
             <?php foreach ($featuredSellers as $seller): ?>

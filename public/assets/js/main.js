@@ -1,5 +1,5 @@
 /*
- * re:wear — utilitas antarmuka global
+ * Relova — utilitas antarmuka global
  * Dimuat lebih awal dari skrip lain tanpa modul.
  */
 (function (global) {

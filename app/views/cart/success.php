@@ -21,6 +21,6 @@
             <a href="<?= url('/pesanan') ?>" class="button button--dark">Lihat Pesanan Saya <?= icon('arrow-right') ?></a>
             <a href="<?= url('/jelajahi') ?>" class="button button--ghost">Lanjut Menjelajah</a>
         </div>
-        <div class="success-page__note"><?= icon('info') ?> Pembayaran dan pengiriman disepakati langsung dengan penjual. re:wear hanya mencatat pesanan dan status transaksi.</div>
+        <div class="success-page__note"><?= icon('info') ?> Pembayaran dan pengiriman disepakati langsung dengan penjual. Relova hanya mencatat pesanan dan status transaksi.</div>
     </div>
 </section>

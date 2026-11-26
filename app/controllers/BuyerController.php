@@ -13,7 +13,7 @@ class BuyerController extends Controller
         $wishlistModel = new WishlistModel();
 
         $this->render('buyer/dashboard', [
-            'title' => 'Ruang Pembeli — re:wear',
+            'title' => 'Ruang Pembeli — Relova',
             'page' => 'buyer-dashboard',
             'orders' => $orderModel->recentForBuyer(Auth::id(), 4),
             'stats' => $orderModel->buyerStats(Auth::id()),

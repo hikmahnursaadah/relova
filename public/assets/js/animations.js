@@ -1,5 +1,5 @@
 /*
- * re:wear — gerak editorial berbasis GSAP / ScrollTrigger.
+ * Relova — gerak editorial berbasis GSAP / ScrollTrigger.
  * Jika pustaka tidak ada atau pengguna memilih reduced motion, konten tetap tampil.
  */
 (function (global) {

@@ -9,7 +9,7 @@ class NotificationController extends Controller
         $notificationModel->markAllRead(Auth::id());
         $layout = Auth::isAdmin() ? 'admin' : (Auth::isSeller() ? 'seller' : 'buyer');
         $this->render('notifications/index', [
-            'title' => 'Notifikasi — re:wear',
+            'title' => 'Notifikasi — Relova',
             'page' => 'notifications',
             'notifications' => $notificationModel->all(Auth::id(), 1, 30),
         ], $layout);

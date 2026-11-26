@@ -145,7 +145,7 @@ $conversationCount = count($conversations);
                 </div>
                 <div class="chat-context-panel__note">
                     <span><?= icon('info') ?></span>
-                    <p>Ongkir, pembayaran, dan pengiriman disepakati langsung di percakapan ini. re:wear hanya mencatat pesanan.</p>
+                    <p>Ongkir, pembayaran, dan pengiriman disepakati langsung di percakapan ini. Relova hanya mencatat pesanan.</p>
                 </div>
                 <a href="<?= url('/pesanan') ?>" class="text-link">Lihat pesanan saya <?= icon('arrow-right') ?></a>
             </aside>

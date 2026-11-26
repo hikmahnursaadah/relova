@@ -14,7 +14,7 @@ foreach ($orders as $order) {
         <div>
             <span class="eyebrow">Ruang pembeli — <?= e(date('Y')) ?></span>
             <h1>Halo, <em><?= e($firstName) ?>.</em></h1>
-            <p>Ini ringkasan lemari, pesanan, dan percakapanmu di re:wear.</p>
+            <p>Ini ringkasan lemari, pesanan, dan percakapanmu di Relova.</p>
         </div>
         <div class="buyer-home__quick">
             <a href="<?= url('/jelajahi') ?>" class="button button--dark">Jelajahi Koleksi <?= icon('arrow-up-right') ?></a>

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   re:wear — editorial public pages
+   Relova — editorial public pages
    Auth, product detail, cart & checkout, orders, profile, notifications,
    seller landing, about, studio and standalone states.
    ========================================================================== */
@@ -373,7 +373,7 @@
 .product-info__price {
     font-family: var(--serif);
     font-size: clamp(2rem, 3vw, 3rem);
-    font-weight: 400;
+    font-weight: 600;
     letter-spacing: -0.03em;
 }
 
@@ -655,7 +655,7 @@
 .seller-card__stats strong {
     font-family: var(--serif);
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .seller-card__stats span {
@@ -736,7 +736,7 @@
 .reviews-summary strong {
     font-family: var(--serif);
     font-size: clamp(3rem, 5vw, 4.4rem);
-    font-weight: 400;
+    font-weight: 600;
     line-height: 0.9;
 }
 
@@ -998,7 +998,7 @@
 .cart-item__end strong {
     font-family: var(--serif);
     font-size: 19px;
-    font-weight: 400;
+    font-weight: 600;
     white-space: nowrap;
 }
 
@@ -1060,7 +1060,7 @@
 .checkout-summary__total strong {
     font-family: var(--serif);
     font-size: 30px;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .cart-summary__note,
@@ -1243,7 +1243,7 @@
 .checkout-review__item > strong:last-child {
     font-family: var(--serif);
     font-size: 17px;
-    font-weight: 400;
+    font-weight: 600;
     white-space: nowrap;
 }
 
@@ -1379,7 +1379,7 @@
     margin-top: 3px;
     font-family: var(--serif);
     font-size: 19px;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .success-order > .icon {
@@ -1633,7 +1633,7 @@
 .profile-seller-strip__score strong {
     font-family: var(--serif);
     font-size: 38px;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1;
 }
 
@@ -1659,7 +1659,7 @@
     margin-top: 5px;
     font-family: var(--serif);
     font-size: 23px;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .profile-tabs {
@@ -2076,7 +2076,7 @@
 .sell-hero__meta strong {
     font-family: var(--serif);
     font-size: 27px;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .sell-hero__meta span {
@@ -2150,7 +2150,7 @@
 .sell-hero__tag strong {
     font-family: var(--serif);
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .sell-hero__tag small {
@@ -2488,7 +2488,7 @@
 .about-hero__meta strong {
     font-family: var(--serif);
     font-size: 30px;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .about-hero__meta span {

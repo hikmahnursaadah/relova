@@ -9,7 +9,7 @@
     </div>
     <div class="auth-panel">
         <div class="auth-panel__inner auth-panel__inner--wide">
-            <span class="eyebrow">Bergabung dengan re:wear</span>
+            <span class="eyebrow">Bergabung dengan Relova</span>
             <h1>Buat ruang untuk<br><em>cerita berikutnya.</em></h1>
             <p class="auth-panel__lead">Satu akun untuk membeli dan menjual pakaian serta sepatu bekas terawat.</p>
 

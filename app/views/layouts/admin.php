@@ -8,7 +8,7 @@ View::partial('components/flash');
 <div class="admin-shell">
     <aside class="admin-sidebar" data-sidebar>
         <div class="admin-sidebar__head">
-            <a class="brand brand--admin" href="<?= url('/admin') ?>"><span class="brand__word">re<span class="brand__colon">:</span>wear</span></a>
+            <a class="brand brand--admin" href="<?= url('/admin') ?>"><span class="brand__word">Relova</span></a>
             <span class="admin-badge">Administrator</span>
             <button class="icon-button admin-sidebar__close" data-sidebar-close aria-label="Tutup menu"><?= icon('close') ?></button>
         </div>
@@ -32,7 +32,7 @@ View::partial('components/flash');
         <header class="admin-topbar">
             <div class="admin-topbar__left">
                 <button class="icon-button dashboard-menu-toggle" data-sidebar-open aria-label="Buka menu"><?= icon('menu') ?></button>
-                <span>Panel moderasi re:wear</span>
+                <span>Panel moderasi Relova</span>
             </div>
             <div class="admin-topbar__right">
                 <span class="admin-live"><span></span> Sistem aktif</span>

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   re:wear — dashboard shells, seller studio, moderation panels, chat
+   Relova — dashboard shells, seller studio, moderation panels, chat
    Loaded after global.css / navbar.css / hero.css / categories.css /
    products.css. Extends shared tokens; owns dashboard-only class families.
    ========================================================================== */
@@ -95,11 +95,6 @@
     letter-spacing: -0.055em;
 }
 
-.dashboard-sidebar .brand__colon,
-.admin-sidebar .brand__colon {
-    color: var(--dash-accent);
-}
-
 .dashboard-sidebar__promo--seller {
     border-color: rgba(109, 116, 87, 0.42);
     background: rgba(109, 116, 87, 0.14);
@@ -107,10 +102,6 @@
 
 .dashboard-shell--seller .dashboard-sidebar__promo .eyebrow {
     color: #b8c0a3;
-}
-
-.brand--admin .brand__colon {
-    color: var(--gold);
 }
 
 .admin-badge {
@@ -589,7 +580,7 @@
     margin-top: 12px;
     font-family: var(--serif);
     font-size: clamp(2rem, 2.7vw, 3rem);
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1;
     letter-spacing: -0.03em;
 }
@@ -856,7 +847,7 @@
 .buyer-recommendation b {
     font-family: var(--serif);
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 600;
     white-space: nowrap;
 }
 
@@ -1065,7 +1056,7 @@
 .seller-rating-card__score strong {
     font-family: var(--serif);
     font-size: clamp(3rem, 5vw, 4.4rem);
-    font-weight: 400;
+    font-weight: 600;
     line-height: 0.9;
 }
 
@@ -1102,7 +1093,7 @@
     margin-top: 5px;
     font-family: var(--serif);
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .seller-review-list {
@@ -1708,7 +1699,7 @@
 .order-item > strong {
     font-family: var(--serif);
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 600;
     white-space: nowrap;
 }
 
@@ -1766,7 +1757,7 @@
 .order-total__grand strong {
     font-family: var(--serif);
     font-size: 28px;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .order-parties {
@@ -1941,7 +1932,7 @@
     margin: 14px 0 8px;
     font-family: var(--serif);
     font-size: clamp(2.2rem, 3vw, 3.3rem);
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1;
     letter-spacing: -0.03em;
 }
@@ -3026,7 +3017,7 @@
 .chat-context-panel__product strong {
     font-family: var(--serif);
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1.15;
 }
 

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   re:wear — Editorial login page
+   Relova — Editorial login page
    Scoped to .auth-section--login so other auth pages are unaffected.
    Palette: cream #F3F0E8 / ink #24221F / terracotta #C95C40
             secondary #A9A397 / line #D8D2C7
@@ -87,7 +87,7 @@ body.page-auth {
     margin: 24px 0 20px;
     font-family: var(--serif);
     font-size: clamp(3rem, 5vw, 5.4rem);
-    font-weight: 400;
+    font-weight: 600;
     line-height: 0.98;
     letter-spacing: -0.03em;
     color: var(--login-ink);
@@ -161,7 +161,7 @@ body.page-auth {
     margin: 18px 0 12px;
     font-family: var(--serif);
     font-size: clamp(2.5rem, 3.6vw, 3.7rem);
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1.04;
     letter-spacing: -0.025em;
     color: var(--login-ink);

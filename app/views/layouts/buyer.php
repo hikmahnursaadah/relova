@@ -8,7 +8,7 @@ View::partial('components/flash');
 <div class="dashboard-shell dashboard-shell--buyer">
     <aside class="dashboard-sidebar" data-sidebar>
         <div class="dashboard-sidebar__head">
-            <a class="brand" href="<?= url('/') ?>"><span class="brand__word">re<span class="brand__colon">:</span>wear</span></a>
+            <a class="brand" href="<?= url('/') ?>"><span class="brand__word">Relova</span></a>
             <button class="icon-button dashboard-sidebar__close" data-sidebar-close aria-label="Tutup menu"><?= icon('close') ?></button>
         </div>
         <span class="dashboard-sidebar__label">Ruang pembeli</span>

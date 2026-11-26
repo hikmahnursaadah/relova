@@ -15,7 +15,7 @@ class Seeder
             $adminPassword = password_hash('admin123', PASSWORD_DEFAULT);
 
             $users = [
-                ['Nadia Prameswari', 'nadia', 'admin@rewear.id', $adminPassword, 'admin', '0812 1000 2201', 'Jakarta', 'Mengelola komunitas re:wear dan menjaga kualitas kurasi.', '-180 days'],
+                ['Nadia Prameswari', 'nadia', 'admin@rewear.id', $adminPassword, 'admin', '0812 1000 2201', 'Jakarta', 'Mengelola komunitas Relova dan menjaga kualitas kurasi.', '-180 days'],
                 ['Alya Rahmawati', 'alya', 'alya@rewear.id', $password, 'penjual', '0813 2211 8890', 'Bandung', 'Penikmat gaya klasik dan penggemar warna netral. Setiap barang dicuci sebelum dikirim.', '-160 days'],
                 ['Dimas Aditya', 'dimas', 'dimas@rewear.id', $password, 'penjual', '0857 8890 1122', 'Yogyakarta', 'Menjual koleksi pribadi yang jarang dipakai. Semua foto diambil apa adanya.', '-150 days'],
                 ['Sinta Maharani', 'sinta', 'sinta@rewear.id', $password, 'penjual', '0819 3344 7765', 'Jakarta', 'Pecinta siluet klasik dan warna bumi. Selalu siap menjawab pertanyaan pembeli.', '-130 days'],
@@ -247,7 +247,7 @@ class Seeder
 
             $settingsStmt = $db->prepare('INSERT INTO settings (key, value) VALUES (?, ?)');
             $settings = [
-                'site_name' => 're:wear',
+                'site_name' => 'Relova',
                 'site_tagline' => 'Pakaian punya kehidupan kedua.',
                 'contact_email' => 'halo@rewear.id',
                 'contact_phone' => '0812 1000 2201',

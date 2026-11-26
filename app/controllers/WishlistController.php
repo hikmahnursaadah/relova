@@ -10,7 +10,7 @@ class WishlistController extends Controller
         }
         $wishlist = new WishlistModel();
         $this->render('wishlist/index', [
-            'title' => 'Favorit — re:wear',
+            'title' => 'Favorit — Relova',
             'page' => 'wishlist',
             'items' => $wishlist->items(Auth::id()),
             'wishlistIds' => $wishlist->ids(Auth::id()),

@@ -9,8 +9,8 @@ $chatUnread = $navUser && !Auth::isAdmin() ? (new ChatModel())->unreadCount(Auth
 <header class="site-header" data-navbar>
     <div class="navbar-shell">
         <div class="navbar-top">
-            <a class="brand" href="<?= url('/') ?>" aria-label="re:wear — Beranda">
-                <span class="brand__word">re<span class="brand__colon">:</span>wear</span>
+            <a class="brand" href="<?= url('/') ?>" aria-label="Relova — Beranda">
+                <span class="brand__word">Relova</span>
                 <span class="brand__note">pakaian bekas terawat</span>
             </a>
 

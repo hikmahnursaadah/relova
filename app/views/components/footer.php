@@ -3,7 +3,7 @@
     <div class="site-footer__top">
         <div class="site-footer__brand">
             <a class="brand brand--footer" href="<?= url('/') ?>">
-                <span class="brand__word">re<span class="brand__colon">:</span>wear</span>
+                <span class="brand__word">Relova</span>
             </a>
             <p>Pakaian punya kehidupan kedua.<br>Pakaian dan sepatu bekas terawat yang dikurasi dengan teliti.</p>
             <a class="footer-email" href="mailto:<?= e($settingsFooter['contact_email'] ?? 'halo@rewear.id') ?>"><?= e($settingsFooter['contact_email'] ?? 'halo@rewear.id') ?></a>
@@ -34,9 +34,9 @@
             </div>
         </div>
     </div>
-    <div class="site-footer__wordmark" aria-hidden="true">re:wear</div>
+    <div class="site-footer__wordmark" aria-hidden="true">Relova</div>
     <div class="site-footer__bottom">
-        <span>© <?= date('Y') ?> re:wear. Dibuat untuk memberi pakaian kesempatan kedua.</span>
+        <span>© <?= date('Y') ?> Relova. Dibuat untuk memberi pakaian kesempatan kedua.</span>
         <span>Bandung — Jakarta, Indonesia</span>
         <button type="button" class="back-to-top" data-back-to-top>Kembali ke atas <?= icon('arrow-up-right') ?></button>
     </div>

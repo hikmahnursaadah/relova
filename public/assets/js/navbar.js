@@ -1,5 +1,5 @@
 /*
- * re:wear — navigasi “zipper”
+ * Relova — navigasi “zipper”
  * Bekerja dengan atau tanpa GSAP. Kelas CSS menjadi jalur cadangan.
  */
 (function (global) {

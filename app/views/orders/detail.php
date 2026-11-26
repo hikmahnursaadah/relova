@@ -136,7 +136,7 @@ $layoutSeller = (int) $order['seller_id'] === Auth::id() && (int) $order['buyer_
                 <?php if ($order['notes']): ?>
                     <div class="order-note"><span>Catatan pembeli</span><p><?= e($order['notes']) ?></p></div>
                 <?php endif; ?>
-                <p class="aside-note"><?= icon('info') ?> Pengiriman diatur langsung oleh penjual. re:wear tidak menyediakan layanan logistik otomatis.</p>
+                <p class="aside-note"><?= icon('info') ?> Pengiriman diatur langsung oleh penjual. Relova tidak menyediakan layanan logistik otomatis.</p>
             </section>
 
             <?php if ($order['status'] === 'selesai'): ?>

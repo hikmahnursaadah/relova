@@ -12,7 +12,7 @@ class ProfileController extends Controller
         $reviewStats = (new ReviewModel())->statsForSeller(Auth::id());
 
         $this->render('profile/index', [
-            'title' => 'Profil Saya — re:wear',
+            'title' => 'Profil Saya — Relova',
             'page' => 'profile',
             'user' => $user,
             'sellerStats' => $sellerStats,

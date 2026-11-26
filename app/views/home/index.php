@@ -12,119 +12,48 @@ $categoryCopy = [
 $liveStats = $liveStats ?? ['products' => 0, 'sellers' => 0, 'cities' => 0];
 ?>
 <section class="hero" data-hero>
-    <div class="hero__noise" aria-hidden="true"></div>
-    <div class="hero__grid">
-        <div class="hero__copy">
-            <div class="hero__eyebrow" data-hero-reveal>
-                <span class="eyebrow">Pakaian bekas terawat — kurasi edisi 02</span>
-                <span class="hero__edition">Bandung / Jakarta</span>
-            </div>
-            <h1 class="hero__title" data-hero-title>
-                <span>Setiap Gaya</span>
-                <span>Punya <em>Cerita</em></span>
-                <span class="hero__title-last"><em>Kedua.</em><span class="hero__title-mark">(02)</span></span>
-            </h1>
-            <p class="hero__description" data-hero-reveal>
-                Temukan pakaian dan sepatu bekas pilihan, atau beri kesempatan baru pada barang yang sudah tidak kamu gunakan. Setiap produk dikurasi dengan teliti dan siap menemani cerita berikutnya.
-            </p>
-            <div class="hero__actions" data-hero-reveal>
-                <a href="<?= url('/jelajahi') ?>" class="button button--dark">Jelajahi Koleksi <?= icon('arrow-up-right') ?></a>
-                <a href="<?= url('/jual') ?>" class="button button--ghost">Mulai Menjual <?= icon('arrow-right') ?></a>
-            </div>
-            <div class="hero__footnotes" data-hero-reveal>
-                <div class="hero__stat">
-                    <strong><?= number_format((int) $liveStats['products'], 0, ',', '.') ?></strong>
-                    <small>produk aktif saat ini</small>
-                </div>
-                <div class="hero__stat">
-                    <strong><?= number_format((int) $liveStats['sellers'], 0, ',', '.') ?></strong>
-                    <small>penjual dengan etalase aktif</small>
-                </div>
-                <p class="hero__note">Setiap produk diperiksa.<br>Setiap cerita dijaga.</p>
-            </div>
-        </div>
-
-        <div class="hero__visual" data-mannequin-area>
-            <div class="hero__arch" aria-hidden="true">
-                <span class="hero__arch-label">ARSIP PAKAIAN BEKAS / <?= date('Y') ?></span>
-                <span class="hero__arch-index">02</span>
-            </div>
-            <div class="hero__stage">
-                <div class="mannequin-canvas" data-mannequin data-mode="hero" aria-label="Manekin 3D interaktif yang dapat digerakkan dengan kursor"></div>
-                <div class="mannequin-fallback" data-mannequin-fallback aria-hidden="true">
-                    <svg viewBox="0 0 260 620" role="img" aria-label="Ilustrasi manekin mengenakan pakaian bekas terawat">
-                        <defs>
-                            <linearGradient id="bodyIvory" x1="0" y1="0" x2="1" y2="1">
-                                <stop offset="0" stop-color="#faf6ee"/>
-                                <stop offset=".55" stop-color="#e9e1d3"/>
-                                <stop offset="1" stop-color="#d7cdbd"/>
-                            </linearGradient>
-                            <linearGradient id="topSage" x1="0" y1="0" x2="1" y2="1">
-                                <stop offset="0" stop-color="#7c8067"/>
-                                <stop offset="1" stop-color="#5f6450"/>
-                            </linearGradient>
-                        </defs>
-                        <ellipse cx="132" cy="595" rx="62" ry="10" fill="#1d1c18" opacity=".12"/>
-                        <path d="M130 42c-18 0-30 14-30 34 0 18 12 33 30 33s30-15 30-33c0-20-12-34-30-34Z" fill="url(#bodyIvory)"/>
-                        <path d="M116 104h28l7 24h-42l7-24Z" fill="url(#bodyIvory)"/>
-                        <path d="M95 131c-9 1-17 6-22 15l-18 55c-2 8 4 14 11 15 6 1 10-3 12-9l13-37-6 66h92l-6-66 13 37c2 6 6 10 12 9 7-1 13-7 11-15l-18-55c-5-9-13-14-22-15l-21-7H116l-21 7Z" fill="url(#topSage)"/>
-                        <path d="M83 179h97l-8 110H90l-7-110Z" fill="url(#topSage)"/>
-                        <path d="M88 289h87l13 106-14 73h-30l2-98-10-1-10 1 2 98h-30l-14-73 14-106Z" fill="#a7aab0"/>
-                        <path d="M93 474h28l4 64-5 23H94l-6-24 5-63Zm48 0h28l5 63 5 24h-27l-5-23 4-64Z" fill="url(#bodyIvory)"/>
-                        <path d="M88 559c-4 8 0 18 9 20h27c6 0 9-4 8-10l-3-9H88Zm52 0 3 10c1 6 4 10 10 10h20c7 0 11-6 9-12l-5-10-37 2Z" fill="#ebe3d6"/>
-                        <path d="M63 198c-7 4-10 12-8 19l9 62c1 7 6 10 11 9 6-1 9-6 8-12l-9-58 8-8-19-12Zm134 0c7 4 10 12 8 19l-9 62c-1 7-6 10-11 9-6-1-9-6-8-12l9-58-8-8 19-12Z" fill="url(#bodyIvory)"/>
-                        <path d="M70 289h19v13H70zM172 289h19v13h-19z" fill="#6a6e58"/>
-                        <path d="M97 151c9 6 18 9 34 9s26-3 34-9" fill="none" stroke="#505443" stroke-width="2" opacity=".5"/>
-                        <path d="M90 290h84" fill="none" stroke="#4f5360" stroke-width="3"/>
-                        <path d="M107 397h11M144 397h11" stroke="#7c7f86" stroke-width="1.5" stroke-dasharray="3 4"/>
-                        <path d="M124 42c0-7 3-11 7-11s7 4 7 11" fill="none" stroke="#cfc5b5" stroke-width="2"/>
-                        <circle cx="131" cy="28" r="2.3" fill="#c25a3e"/>
-                    </svg>
-                    <span class="mannequin-fallback__caption">Tampilan studio sedang dimuat</span>
+    <div class="hero__shell">
+        <div class="hero__card">
+            <div class="hero__grid">
+                <div class="hero__copy">
+                    <span class="hero__badge" data-hero-reveal>
+                        <span class="hero__badge-icon"><?= icon('heart') ?></span>
+                        Kurasi edisi 02
+                    </span>
+                    <h1 class="hero__title" data-hero-title>
+                        <span>Setiap Gaya</span>
+                        <span>Punya <em>Cerita</em></span>
+                        <span>Kedua.</span>
+                    </h1>
+                    <p class="hero__description" data-hero-reveal>
+                        Temukan pakaian dan sepatu bekas pilihan, atau beri kesempatan baru pada barang yang sudah tidak kamu gunakan. Setiap produk dikurasi dengan teliti dan siap menemani cerita berikutnya.
+                    </p>
+                    <div class="hero__proof" data-hero-reveal>
+                        <div class="hero__stat">
+                            <strong data-count="<?= (int) $liveStats['products'] ?>"><?= number_format((int) $liveStats['products'], 0, ',', '.') ?></strong>
+                            <span>produk aktif</span>
+                        </div>
+                        <div class="hero__stat">
+                            <strong data-count="<?= (int) $liveStats['sellers'] ?>"><?= number_format((int) $liveStats['sellers'], 0, ',', '.') ?></strong>
+                            <span>penjual terkurasi</span>
+                        </div>
+                        <p class="hero__proof-note">Setiap produk diperiksa.<br>Setiap cerita dijaga.</p>
+                    </div>
                 </div>
 
-                <div class="hero__visual-tag hero__visual-tag--top">
-                    <span class="hero__visual-dot"></span>
-                    <span>Manekin interaktif</span>
-                </div>
-                <div class="hero__visual-tag hero__visual-tag--side">
-                    <span>Gerakkan kursor</span>
-                    <?= icon('rotate') ?>
-                </div>
-
-                <div class="outfit-panel" data-outfit-panel>
-                    <div class="outfit-panel__head">
-                        <span class="eyebrow">Gaya aktif</span>
-                        <span class="outfit-panel__counter" data-outfit-counter>01 / 05</span>
-                    </div>
-                    <div class="outfit-panel__name-row">
-                        <strong data-outfit-name>Kasual</strong>
-                        <button type="button" class="outfit-play" data-outfit-play aria-label="Hentikan pergantian gaya otomatis">
-                            <span data-outfit-play-icon><?= icon('pause') ?></span>
-                        </button>
-                    </div>
-                    <div class="outfit-dots" data-outfit-dots>
-                        <button type="button" class="outfit-dot is-active" data-outfit-index="0" aria-label="Gaya Kasual"><span>01</span></button>
-                        <button type="button" class="outfit-dot" data-outfit-index="1" aria-label="Gaya Vintage"><span>02</span></button>
-                        <button type="button" class="outfit-dot" data-outfit-index="2" aria-label="Gaya Streetwear"><span>03</span></button>
-                        <button type="button" class="outfit-dot" data-outfit-index="3" aria-label="Gaya Minimalis"><span>04</span></button>
-                        <button type="button" class="outfit-dot" data-outfit-index="4" aria-label="Gaya Outerwear"><span>05</span></button>
-                    </div>
-                    <div class="outfit-progress"><span data-outfit-progress></span></div>
-                </div>
+                <figure class="hero__media" data-hero-reveal>
+                    <img src="<?= asset('images/hero/relova-hero.jpg') ?>" alt="Model berambut pirang mengenakan blazer hitam dari koleksi Relova" width="1200" height="1800" fetchpriority="high" decoding="async">
+                    <figcaption class="hero__media-caption">
+                        <span>Koleksi 02</span>
+                        <span>Bandung — Jakarta</span>
+                    </figcaption>
+                </figure>
             </div>
-            <span class="hero__vertical-note">GULIR UNTUK MENJELAJAH</span>
-        </div>
-    </div>
-    <div class="hero__bottom">
-        <a href="#gaya" class="scroll-cue" data-scroll-cue>
-            <span class="scroll-cue__line"></span>
-            <span>Turun untuk menjelajah</span>
-        </a>
-        <p class="hero__manifesto">Bukan sekadar bekas.<br><em>Ini babak baru.</em></p>
-        <div class="hero__coordinates">
-            <span>6°54' S / 107°36' E</span>
-            <span>Koleksi 02 — 2026</span>
+
+            <div class="hero__footer" data-hero-reveal>
+                <a href="<?= url('/jelajahi') ?>" class="hero__cta">Jelajahi Koleksi <?= icon('arrow-up-right') ?></a>
+                <a href="<?= url('/jual') ?>" class="hero__cta-secondary">Mulai Menjual <?= icon('arrow-right') ?></a>
+            </div>
         </div>
     </div>
 </section>
@@ -220,9 +149,9 @@ $liveStats = $liveStats ?? ['products' => 0, 'sellers' => 0, 'cities' => 0];
             <span class="editorial-stamp"><?= icon('recycle') ?> dipilih dengan teliti</span>
         </div>
         <div class="editorial-section__copy">
-            <span class="eyebrow" data-reveal>Filosofi re:wear</span>
+            <span class="eyebrow" data-reveal>Filosofi Relova</span>
             <h2 data-reveal>Bukan sekadar <em>bekas.</em></h2>
-            <p class="editorial-section__lead" data-reveal>Setiap pakaian yang sampai di re:wear melewati cerita, pemeriksaan, dan perawatan. Kami percaya kualitas tidak berhenti pada pemilik pertama.</p>
+            <p class="editorial-section__lead" data-reveal>Setiap pakaian yang sampai di Relova melewati cerita, pemeriksaan, dan perawatan. Kami percaya kualitas tidak berhenti pada pemilik pertama.</p>
             <div class="process-list" data-reveal>
                 <div class="process-item">
                     <span>01</span>
@@ -248,7 +177,7 @@ $liveStats = $liveStats ?? ['products' => 0, 'sellers' => 0, 'cities' => 0];
             </div>
             <blockquote class="editorial-quote" data-reveal>
                 “Cara paling indah merawat pakaian adalah memakainya lebih lama.”
-                <cite>— Catatan kurator re:wear</cite>
+                <cite>— Catatan kurator Relova</cite>
             </blockquote>
         </div>
     </div>
@@ -290,7 +219,7 @@ $liveStats = $liveStats ?? ['products' => 0, 'sellers' => 0, 'cities' => 0];
                 <p data-reveal>Pakaian yang sudah tidak kamu pakai mungkin sedang menunggu pemilik berikutnya. Jual dengan cara yang jujur, mudah, dan tetap manusiawi.</p>
                 <div class="sell-cta__actions" data-reveal>
                     <a href="<?= Auth::isSeller() ? url('/penjual/produk/tambah') : url('/jual') ?>" class="button button--light"><?= Auth::isSeller() ? 'Tambah Produk' : 'Mulai Menjual' ?> <?= icon('arrow-up-right') ?></a>
-                    <a href="<?= url('/tentang') ?>" class="text-link text-link--light">Kenali cara kerja re:wear <?= icon('arrow-right') ?></a>
+                    <a href="<?= url('/tentang') ?>" class="text-link text-link--light">Kenali cara kerja Relova <?= icon('arrow-right') ?></a>
                 </div>
             </div>
             <div class="sell-cta__visual" data-reveal>

@@ -12,7 +12,7 @@ class HomeController extends Controller
         $users = new UserModel();
 
         $this->render('home/index', [
-            'title' => 're:wear — Pakaian Punya Kehidupan Kedua',
+            'title' => 'Relova — Pakaian Punya Kehidupan Kedua',
             'page' => 'home',
             'categories' => $categories,
             'featured' => $featured,
@@ -34,7 +34,7 @@ class HomeController extends Controller
         $sellers = $users->all(['role' => 'penjual', 'status' => 'aktif'], 1, 3);
         $reviews = (new ReviewModel())->forSeller(2, 3);
         $this->render('home/about', [
-            'title' => 'Tentang Kami — re:wear',
+            'title' => 'Tentang Kami — Relova',
             'page' => 'about',
             'settings' => $settings,
             'sellers' => $sellers,
@@ -49,7 +49,7 @@ class HomeController extends Controller
     public function studio(): void
     {
         $this->render('home/studio', [
-            'title' => 'Studio 3D — re:wear',
+            'title' => 'Studio 3D — Relova',
             'page' => 'studio',
         ], 'main');
     }

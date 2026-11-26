@@ -140,7 +140,7 @@ $reviewTotal = (int) ($reviewStats['total'] ?? 0);
 
                 <div class="transaction-note">
                     <span><?= icon('shield') ?></span>
-                    <p><strong>Transaksi langsung dengan penjual.</strong> Ongkos kirim dan metode pengiriman disepakati melalui pesan. re:wear mencatat pesanan dan status transaksi tanpa memproses pembayaran otomatis.</p>
+                    <p><strong>Transaksi langsung dengan penjual.</strong> Ongkos kirim dan metode pengiriman disepakati melalui pesan. Relova mencatat pesanan dan status transaksi tanpa memproses pembayaran otomatis.</p>
                 </div>
             </div>
         </div>
@@ -170,7 +170,7 @@ $reviewTotal = (int) ($reviewStats['total'] ?? 0);
                         <span><?= e($product['seller_city'] ?: 'Indonesia') ?></span>
                     </div>
                 </div>
-                <p class="seller-card__bio"><?= e($seller['bio'] ?? 'Penjual pakaian bekas terkurasi di re:wear.') ?></p>
+                <p class="seller-card__bio"><?= e($seller['bio'] ?? 'Penjual pakaian bekas terkurasi di Relova.') ?></p>
                 <div class="seller-card__stats">
                     <div><strong><?= (int) ($seller['active_products'] ?? 0) ?></strong><span>produk aktif</span></div>
                     <div><strong><?= (int) ($seller['completed_sales'] ?? 0) ?></strong><span>terjual</span></div>
